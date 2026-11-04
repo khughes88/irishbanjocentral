@@ -213,21 +213,13 @@
       place-items: center;
     }
 
-    .hero-art::before {
-      position: absolute;
-      width: min(410px, 88%);
-      aspect-ratio: 1;
-      border: 1px solid rgb(255 250 240 / 13%);
-      border-radius: 50%;
-      content: "";
-    }
-
-    .hero-art svg {
+    .hero-art img {
       position: relative;
-      width: min(440px, 100%);
-      overflow: visible;
+      width: min(620px, calc(100% + 80px));
+      aspect-ratio: 1.24;
       filter: drop-shadow(0 28px 30px rgb(0 0 0 / 19%));
-      transform: rotate(-24deg);
+      object-fit: cover;
+      object-position: 68% center;
     }
 
     .art-note {
@@ -300,7 +292,7 @@
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 18px;
     }
 
@@ -334,6 +326,13 @@
       color: var(--muted);
       font-size: 14px;
       line-height: 1.65;
+    }
+
+    .card-guide-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 16px;
     }
 
     .tune-room {
@@ -550,8 +549,7 @@
         min-height: 0;
         opacity: .31;
       }
-      .hero-art::before { width: 85%; }
-      .hero-art svg { width: 100%; }
+      .hero-art img { width: calc(100% + 80px); }
       .art-note { display: none; }
       .intro {
         grid-template-columns: 1fr;
@@ -594,9 +592,9 @@
         Irish Banjo Central
       </a>
       <div class="nav-links">
-        <a href="#about">The banjo</a>
-        <a href="#explore">Explore</a>
-        <a class="nav-cta" href="#tune-room">Find your tune <span aria-hidden="true">↗</span></a>
+        <a href="#about">About</a>
+        <a href="#explore">How to read tablature</a>
+        <a class="nav-cta" href="#tune-room">Search tunes<span aria-hidden="true">↗</span></a>
       </div>
     </nav>
   </header>
@@ -605,47 +603,20 @@
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-inner wrap">
         <div class="hero-copy">
-          <p class="eyebrow">A home for the Irish tenor banjo</p>
-          <h1 id="hero-title">Four strings.<br>A world of <em>music.</em></h1>
-          <p>From the first tune to the late-night session, find your way into the bright, driving sound of the Irish banjo.</p>
-          <a class="button" href="#explore">Explore the banjo <span aria-hidden="true">→</span></a>
+          <h1 id="hero-title">Irish Banjo <br>Central</em></h1>
+          <p>The worlds largest Irish Tenor Banjo tablature archive</p>
+          <a class="button" href="#explore">How to read tablature <span aria-hidden="true">→</span></a>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <svg viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M302 102L420 18" stroke="#C88959" stroke-width="31" stroke-linecap="round"/>
-            <path d="M310 98L428 14" stroke="#E4B47D" stroke-width="20" stroke-linecap="round"/>
-            <path d="M300 106L418 22" stroke="#754C35" stroke-width="5"/>
-            <path d="M309 99L427 15" stroke="#754C35" stroke-width="5"/>
-            <circle cx="185" cy="271" r="141" fill="#B77445"/>
-            <circle cx="185" cy="271" r="124" fill="#D6A368"/>
-            <circle cx="185" cy="271" r="110" fill="#E9D1A8"/>
-            <circle cx="185" cy="271" r="96" fill="#F2E6CF"/>
-            <circle cx="185" cy="271" r="17" fill="#D7C3A2"/>
-            <path d="M182 265L310 91" stroke="#986342" stroke-width="52" stroke-linecap="round"/>
-            <path d="M183 263L313 87" stroke="#A9744D" stroke-width="40" stroke-linecap="round"/>
-            <path d="M178 268L306 94" stroke="#513D31" stroke-width="3"/>
-            <path d="M184 272L312 98" stroke="#513D31" stroke-width="3"/>
-            <path d="M190 276L318 102" stroke="#513D31" stroke-width="3"/>
-            <path d="M196 280L324 106" stroke="#513D31" stroke-width="3"/>
-            <path d="M171 255L197 275M185 236L211 256M198 218L224 237M212 198L238 217M225 180L251 199M239 161L264 180M252 142L277 161M266 123L291 142" stroke="#D7B083" stroke-width="5"/>
-            <path d="M177 287L296 125" stroke="#FFF5E4" stroke-width="1.5" opacity=".85"/>
-            <path d="M183 291L302 129" stroke="#FFF5E4" stroke-width="1.5" opacity=".85"/>
-            <path d="M189 295L308 133" stroke="#FFF5E4" stroke-width="1.5" opacity=".85"/>
-            <path d="M195 299L314 137" stroke="#FFF5E4" stroke-width="1.5" opacity=".85"/>
-            <path d="M286 111L327 141" stroke="#765039" stroke-width="8" stroke-linecap="round"/>
-            <circle cx="93" cy="177" r="5" fill="#F1DFBD"/>
-            <circle cx="277" cy="359" r="5" fill="#F1DFBD"/>
-            <circle cx="93" cy="365" r="5" fill="#F1DFBD"/>
-            <circle cx="277" cy="182" r="5" fill="#F1DFBD"/>
-          </svg>
-          <span class="art-note">Made for the melody. Built for the session.</span>
+        <div class="hero-art">
+          <img src="./banjo.png" alt="Stylized Irish tenor banjo on a deep green background">
+          
         </div>
       </div>
     </section>
 
     <section class="intro wrap" id="about" aria-labelledby="about-title">
       <div>
-        <p class="section-kicker">The instrument</p>
+        <p class="section-kicker">ABOUT</p>
         <h2 id="about-title">A little history.<br>A lot of rhythm.</h2>
       </div>
       <div class="intro-copy">
@@ -657,26 +628,12 @@
     <section class="explore wrap" id="explore" aria-labelledby="explore-title">
       <div class="explore-heading">
         <div>
-          <p class="section-kicker">Your starting point</p>
-          <h2 id="explore-title">Get into the good stuff.</h2>
+          <h2 id="explore-title">How to read banjo tablature</h2>
         </div>
-        <p>There is more than one way in. Pick a thread and follow the music.</p>
       </div>
       <div class="card-grid">
         <article class="card">
-          <span class="card-number">01 / The tunes</span>
-          <h3>Start with a melody</h3>
-          <p>Reels, jigs, and hornpipes: get to know the dance tunes at the heart of the tradition.</p>
-        </article>
-        <article class="card">
-          <span class="card-number">02 / The playing</span>
-          <h3>Make it your own</h3>
-          <p>Explore picking, tuning, and the little choices that give a tune its lift and character.</p>
-        </article>
-        <article class="card">
-          <span class="card-number">03 / The session</span>
-          <h3>Play together</h3>
-          <p>Find out what to expect, how to listen, and how to find your place in the circle.</p>
+          <img class="card-guide-image" src="./How%20to%20Read%20Banjo%20Tablature.png" alt="Guide to reading Irish tenor banjo tablature in GDAE tuning">
         </article>
       </div>
     </section>
@@ -684,8 +641,7 @@
     <section class="tune-room" id="tune-room" aria-labelledby="tune-room-title">
       <div class="tune-room-inner wrap">
         <div class="tune-room-heading">
-          <p class="section-kicker">The tune collection</p>
-          <h2 id="tune-room-title">Find a tune. Follow the melody.</h2>
+          <h2 id="tune-room-title">Find a tune</h2>
           <p>Search the collection by tune name, type, or composer. Choose a result to explore its notation.</p>
         </div>
         <div class="tune-controls">
