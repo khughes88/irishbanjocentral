@@ -401,7 +401,7 @@
 
     .tune-browser {
       display: grid;
-      grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr);
       gap: 18px;
       align-items: start;
     }
@@ -424,7 +424,8 @@
 
     .tune-results {
       display: grid;
-      max-height: 460px;
+      max-height: 240px;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: 7px;
       overflow-y: auto;
     }
@@ -456,6 +457,7 @@
 
     .tune-selection {
       min-height: 220px;
+      min-width: 0;
       padding: 24px;
     }
 
@@ -483,6 +485,7 @@
     }
 
     .tune-music {
+      min-width: 0;
       overflow-x: auto;
       padding: 18px 12px;
       background: #fffdf8;
@@ -491,6 +494,7 @@
     .tune-music svg {
       display: block;
       width: 100%;
+      max-width: 100%;
       height: auto;
     }
 
@@ -869,6 +873,7 @@
         .then((abcjs) => {
           abcjs.renderAbc(music, abc, {
             staffwidth: Math.max(320, music.clientWidth - 24),
+            responsive: "resize",
             scale: 1,
             tablature: [{
               instrument: "mandolin",
