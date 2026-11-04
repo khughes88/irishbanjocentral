@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#153a32">
+  <meta name="description" content="A home for the Irish tenor banjo: tunes, playing tips, instrument know-how, and the music that brings it all together.">
+  <title>Irish Banjo Central — Find your way into the music</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --green: #153a32;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --orange: #e8834d;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: #fffaf0;
+    }
+
+    .nav {
+      display: flex;
+      min-height: 88px;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgb(255 250 240 / 20%);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: #fffaf0;
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -.03em;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgb(255 250 240 / 55%);
+      border-radius: 50%;
+      color: var(--orange);
+      font-family: var(--sans);
+      font-size: 17px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: rgb(255 250 240 / 82%);
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .nav-links .nav-cta {
+      padding: 11px 16px;
+      border: 1px solid rgb(255 250 240 / 48%);
+      border-radius: 3px;
+      color: #fffaf0;
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 690px;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 82% 55%, rgb(69 112 86 / 42%), transparent 36%),
+        var(--green);
+      color: #fffaf0;
+    }
+
+    .hero::after {
+      position: absolute;
+      right: -9%;
+      bottom: -48%;
+      width: 78%;
+      height: 80%;
+      border: 1px solid rgb(255 250 240 / 8%);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 20px;
+      padding-top: 85px;
+    }
+
+    .hero-copy { max-width: 550px; }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 22px;
+      color: #edaa78;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 27px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 570px;
+      margin-bottom: 22px;
+      font-family: var(--serif);
+      font-size: clamp(48px, 6.5vw, 78px);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: .99;
+    }
+
+    h1 em {
+      color: #eaa276;
+      font-weight: 400;
+    }
+
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 430px;
+      margin-bottom: 32px;
+      color: rgb(255 250 240 / 76%);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 49px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      background: var(--orange);
+      color: #1d342b;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #f09661;
+    }
+
+    .button span { font-size: 18px; }
+
+    .hero-art {
+      position: relative;
+      display: grid;
+      min-height: 445px;
+      place-items: center;
+    }
+
+    .hero-art::before {
+      position: absolute;
+      width: min(410px, 88%);
+      aspect-ratio: 1;
+      border: 1px solid rgb(255 250 240 / 13%);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-art svg {
+      position: relative;
+      width: min(440px, 100%);
+      overflow: visible;
+      filter: drop-shadow(0 28px 30px rgb(0 0 0 / 19%));
+      transform: rotate(-24deg);
+    }
+
+    .art-note {
+      position: absolute;
+      right: 0;
+      bottom: 58px;
+      color: rgb(255 250 240 / 57%);
+      font-family: var(--serif);
+      font-size: 13px;
+      font-style: italic;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 80px;
+      padding-block: 105px 98px;
+      border-bottom: 1px solid #ded7c9;
+    }
+
+    .section-kicker {
+      margin-bottom: 16px;
+      color: #a45b37;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-family: var(--serif);
+      font-size: clamp(34px, 4vw, 48px);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: 1.08;
+    }
+
+    .intro-copy {
+      max-width: 620px;
+      padding-top: 8px;
+      color: #59645b;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .intro-copy p:last-child { margin-bottom: 0; }
+
+    .explore {
+      padding-block: 94px 105px;
+    }
+
+    .explore-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 42px;
+    }
+
+    .explore-heading h2 { margin-bottom: 0; }
+
+    .explore-heading > p {
+      max-width: 330px;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 250px;
+      padding: 28px 27px;
+      border: 1px solid #e1dacb;
+      background: rgb(255 255 255 / 26%);
+    }
+
+    .card-number {
+      display: block;
+      margin-bottom: 36px;
+      color: #a45b37;
+      font-family: var(--serif);
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    .card h3 {
+      margin-bottom: 11px;
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: -.025em;
+    }
+
+    .card p {
+      max-width: 285px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .listen {
+      position: relative;
+      overflow: hidden;
+      background: var(--paper-deep);
+    }
+
+    .listen-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+      padding-block: 67px;
+    }
+
+    .listen h2 {
+      max-width: 610px;
+      margin-bottom: 12px;
+      font-size: clamp(31px, 4vw, 43px);
+    }
+
+    .listen p {
+      max-width: 550px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .listen .button {
+      border-color: var(--green);
+      background: transparent;
+      color: var(--green);
+    }
+
+    .listen .button:hover { background: #e4dccb; }
+
+    footer {
+      padding-block: 28px;
+      background: var(--green);
+      color: rgb(255 250 240 / 70%);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 12px;
+    }
+
+    .footer-brand {
+      color: #fffaf0;
+      font-family: var(--serif);
+      font-size: 16px;
+    }
+
+    .footer-inner p { margin: 0; }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 560px); }
+      .nav { min-height: 72px; }
+      .brand { font-size: 17px; }
+      .nav-links { gap: 18px; }
+      .nav-links a { font-size: 12px; }
+      .nav-links .nav-cta { padding: 9px 11px; }
+      .hero { min-height: auto; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-block: 150px 48px;
+      }
+      .hero-copy { position: relative; z-index: 1; }
+      h1 { max-width: 520px; font-size: clamp(51px, 11vw, 76px); }
+      .hero-art {
+        position: absolute;
+        right: -85px;
+        bottom: -24px;
+        width: min(420px, 88vw);
+        min-height: 0;
+        opacity: .31;
+      }
+      .hero-art::before { width: 85%; }
+      .hero-art svg { width: 100%; }
+      .art-note { display: none; }
+      .intro {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding-block: 70px;
+      }
+      .intro-copy { padding-top: 0; }
+      .explore { padding-block: 70px; }
+      .explore-heading { display: block; margin-bottom: 30px; }
+      .explore-heading > p { margin-top: 15px; }
+      .card-grid { grid-template-columns: 1fr; gap: 12px; }
+      .card { min-height: 0; padding: 23px; }
+      .card-number { margin-bottom: 20px; }
+      .listen-inner { grid-template-columns: 1fr; gap: 25px; padding-block: 48px; }
+      .listen-inner .button { justify-self: start; }
+    }
+
+    @media (max-width: 420px) {
+      .nav-links { gap: 12px; }
+      .nav-links a:first-child { display: none; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: 8px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">♪</span>
+        Irish Banjo Central
+      </a>
+      <div class="nav-links">
+        <a href="#about">The banjo</a>
+        <a href="#explore">Explore</a>
+        <a class="nav-cta" href="#tune-room">Find your tune <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-inner wrap">
+        <div class="hero-copy">
+          <p class="eyebrow">A home for the Irish tenor banjo</p>
+          <h1 id="hero-title">Four strings.<br>A world of <em>music.</em></h1>
+          <p>From the first tune to the late-night session, find your way into the bright, driving sound of the Irish banjo.</p>
+          <a class="button" href="#explore">Explore the banjo <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M302 102L420 18" stroke="#C88959" stroke-width="31" stroke-linecap="round"/>
+            <path d="M310 98L428 14" stroke="#E4B47D" stroke-width="20" stroke-linecap="round"/>
+            <path d="M300 106L418 22" stroke="#754C35" stroke-width="5"/>
+            <path d="M309 99L427 15" stroke="#754C35" stroke-width="5"/>
+            <circle cx="185" cy="271" r="141" fill="#B77445"/>
+            <circle cx="185" cy="271" r="124" fill="#D6A368"/>
+            <circle cx="185" cy="271" r="110" fill="#E9D1A8"/>
+            <circle cx="185" cy="271" r="96" fill="#F2E6CF"/>
+            <circle cx="185" cy="271" r="17" fill="#D7C3A2"/>
+            <path d="M182 265L310 91" stroke="#986342" stroke-width="52" stroke-linecap="round"/>
+            <path d="M183 263L313 87" stroke="#A9744D" stroke-width="40" stroke-linecap="round"/>
+            <path d="M178 268L306 94" stroke="#513D31" stroke-width="3"/>
+            <path d="M184 272L312 98" stroke="#513D31" stroke-width="3"/>
+            <path d="M190 276L318 102" stroke="#513D31" stroke-width="3"/>
+            <path d="M196 280L324 106" stroke="#513D31" stroke-width="3"/>
+            <path d="M171 255L197 275M185 236L211 256M198 218L224 237M212 198L238 217M225 180L251 199M239 161L264 180M252 142L277 161M266 123L291 142" stroke="#D7B083" stroke-width="5"/>
+            <path d="M177 287L296 125" stroke="#FFF5E4" stroke-width="1.5" opacity=".85"/>
+            <path d="M183 291L302 129" stroke="#FFF5E4" stroke-width="1.5" opacity=".85"/>
+            <path d="M189 295L308 133" stroke="#FFF5E4" stroke-width="1.5" opacity=".85"/>
+            <path d="M195 299L314 137" stroke="#FFF5E4" stroke-width="1.5" opacity=".85"/>
+            <path d="M286 111L327 141" stroke="#765039" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="93" cy="177" r="5" fill="#F1DFBD"/>
+            <circle cx="277" cy="359" r="5" fill="#F1DFBD"/>
+            <circle cx="93" cy="365" r="5" fill="#F1DFBD"/>
+            <circle cx="277" cy="182" r="5" fill="#F1DFBD"/>
+          </svg>
+          <span class="art-note">Made for the melody. Built for the session.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro wrap" id="about" aria-labelledby="about-title">
+      <div>
+        <p class="section-kicker">The instrument</p>
+        <h2 id="about-title">A little history.<br>A lot of rhythm.</h2>
+      </div>
+      <div class="intro-copy">
+        <p>The tenor banjo found a lasting place in Irish traditional music for a reason: its clear, ringing tone can carry a melody through a lively session, while its short scale makes quick dance tunes feel right at home.</p>
+        <p>Whether you are choosing your first instrument, learning a reel, or looking to play with others, this is a place to get oriented and keep listening.</p>
+      </div>
+    </section>
+
+    <section class="explore wrap" id="explore" aria-labelledby="explore-title">
+      <div class="explore-heading">
+        <div>
+          <p class="section-kicker">Your starting point</p>
+          <h2 id="explore-title">Get into the good stuff.</h2>
+        </div>
+        <p>There is more than one way in. Pick a thread and follow the music.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <span class="card-number">01 / The tunes</span>
+          <h3>Start with a melody</h3>
+          <p>Reels, jigs, and hornpipes: get to know the dance tunes at the heart of the tradition.</p>
+        </article>
+        <article class="card">
+          <span class="card-number">02 / The playing</span>
+          <h3>Make it your own</h3>
+          <p>Explore picking, tuning, and the little choices that give a tune its lift and character.</p>
+        </article>
+        <article class="card">
+          <span class="card-number">03 / The session</span>
+          <h3>Play together</h3>
+          <p>Find out what to expect, how to listen, and how to find your place in the circle.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="listen" id="tune-room" aria-labelledby="listen-title">
+      <div class="listen-inner wrap">
+        <div>
+          <p class="section-kicker">Keep your ears open</p>
+          <h2 id="listen-title">The best place to begin is listening.</h2>
+          <p>Take a tune slowly. Hear how the players shape the beat, trade phrases, and make the melody dance. Then pick up your banjo and join in.</p>
+        </div>
+        <a class="button" href="#top">Back to the beginning <span aria-hidden="true">↑</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner wrap">
+      <span class="footer-brand">Irish Banjo Central</span>
+      <p>A gathering place for the Irish tenor banjo.</p>
+      <p>Made for the music. &copy; <span id="year">2026</span></p>
+    </div>
+  </footer>
+</body>
+</html>
