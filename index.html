@@ -336,41 +336,170 @@
       line-height: 1.65;
     }
 
-    .listen {
-      position: relative;
-      overflow: hidden;
+    .tune-room {
+      padding-block: 82px 92px;
       background: var(--paper-deep);
     }
 
-    .listen-inner {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 40px;
-      padding-block: 67px;
+    .tune-room-heading {
+      max-width: 660px;
+      margin-bottom: 30px;
     }
 
-    .listen h2 {
-      max-width: 610px;
+    .tune-room-heading h2 {
       margin-bottom: 12px;
       font-size: clamp(31px, 4vw, 43px);
     }
 
-    .listen p {
-      max-width: 550px;
+    .tune-room-heading > p:last-child {
       margin-bottom: 0;
       color: var(--muted);
       font-size: 14px;
       line-height: 1.7;
     }
 
-    .listen .button {
-      border-color: var(--green);
-      background: transparent;
-      color: var(--green);
+    .tune-controls {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(190px, 260px);
+      gap: 16px;
+      margin-bottom: 12px;
     }
 
-    .listen .button:hover { background: #e4dccb; }
+    .tune-controls label {
+      display: grid;
+      gap: 8px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .tune-controls input,
+    .tune-controls select {
+      width: 100%;
+      min-height: 48px;
+      padding: 0 13px;
+      border: 1px solid #c9c1b2;
+      border-radius: 3px;
+      background: #fffdf8;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    .tune-controls input:focus,
+    .tune-controls select:focus,
+    .tune-result:focus-visible {
+      outline: 3px solid rgb(232 131 77 / 55%);
+      outline-offset: 2px;
+    }
+
+    .tune-status {
+      min-height: 22px;
+      margin: 0 0 17px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .tune-browser {
+      display: grid;
+      grid-template-columns: minmax(240px, .75fr) minmax(0, 1.25fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .tune-results-panel,
+    .tune-selection {
+      border: 1px solid #d5cdbd;
+      background: rgb(255 255 255 / 38%);
+    }
+
+    .tune-results-panel { padding: 19px; }
+
+    .tune-results-panel h3,
+    .tune-selection h3 {
+      margin-bottom: 12px;
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    .tune-results {
+      display: grid;
+      max-height: 460px;
+      gap: 7px;
+      overflow-y: auto;
+    }
+
+    .tune-result {
+      display: grid;
+      gap: 4px;
+      padding: 11px 12px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .tune-result:hover,
+    .tune-result[aria-pressed="true"] {
+      border-color: #d5cdbd;
+      background: #fffdf8;
+    }
+
+    .tune-result-name { font-family: var(--serif); font-size: 17px; }
+
+    .tune-result-meta {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .tune-selection {
+      min-height: 220px;
+      padding: 24px;
+    }
+
+    .tune-selection-placeholder {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .tune-selection-meta {
+      margin: -4px 0 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .tune-selection-label {
+      margin: 0 0 8px;
+      color: #a45b37;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .tune-music {
+      overflow-x: auto;
+      padding: 18px 12px;
+      background: #fffdf8;
+    }
+
+    .tune-music svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .tune-render-status {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
 
     footer {
       padding-block: 28px;
@@ -432,8 +561,11 @@
       .card-grid { grid-template-columns: 1fr; gap: 12px; }
       .card { min-height: 0; padding: 23px; }
       .card-number { margin-bottom: 20px; }
-      .listen-inner { grid-template-columns: 1fr; gap: 25px; padding-block: 48px; }
-      .listen-inner .button { justify-self: start; }
+      .tune-room { padding-block: 64px; }
+      .tune-controls { grid-template-columns: 1fr; }
+      .tune-browser { grid-template-columns: 1fr; }
+      .tune-results { max-height: 320px; }
+      .tune-selection { padding: 20px; }
     }
 
     @media (max-width: 420px) {
@@ -545,14 +677,33 @@
       </div>
     </section>
 
-    <section class="listen" id="tune-room" aria-labelledby="listen-title">
-      <div class="listen-inner wrap">
-        <div>
-          <p class="section-kicker">Keep your ears open</p>
-          <h2 id="listen-title">The best place to begin is listening.</h2>
-          <p>Take a tune slowly. Hear how the players shape the beat, trade phrases, and make the melody dance. Then pick up your banjo and join in.</p>
+    <section class="tune-room" id="tune-room" aria-labelledby="tune-room-title">
+      <div class="tune-room-inner wrap">
+        <div class="tune-room-heading">
+          <p class="section-kicker">The tune collection</p>
+          <h2 id="tune-room-title">Find a tune. Follow the melody.</h2>
+          <p>Search the collection by tune name, type, or composer. Choose a result to explore its notation.</p>
         </div>
-        <a class="button" href="#top">Back to the beginning <span aria-hidden="true">↑</span></a>
+        <div class="tune-controls">
+          <label for="tune-search">Search tunes
+            <input id="tune-search" type="search" autocomplete="off" placeholder="Try a tune name or composer">
+          </label>
+          <label for="tune-type">Filter by type
+            <select id="tune-type">
+              <option value="">All tune types</option>
+            </select>
+          </label>
+        </div>
+        <p class="tune-status" id="tune-status" role="status" aria-live="polite">Start typing to search the tune collection.</p>
+        <div class="tune-browser">
+          <div class="tune-results-panel">
+            <h3>Search results</h3>
+            <div class="tune-results" id="tune-results"></div>
+          </div>
+          <article class="tune-selection" id="tune-selection" aria-live="polite">
+            <p class="tune-selection-placeholder">Choose a tune to see its notation.</p>
+          </article>
+        </div>
       </div>
     </section>
   </main>
@@ -564,5 +715,232 @@
       <p>Made for the music. &copy; <span id="year">2026</span></p>
     </div>
   </footer>
+  <script>
+    const searchInput = document.querySelector("#tune-search");
+    const typeFilter = document.querySelector("#tune-type");
+    const statusMessage = document.querySelector("#tune-status");
+    const resultsContainer = document.querySelector("#tune-results");
+    const selectionContainer = document.querySelector("#tune-selection");
+    let tunes = [];
+    let selectedTuneId = null;
+    let loadPromise = null;
+    let abcjsPromise = null;
+
+    function normalize(value) {
+      return String(value || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase();
+    }
+
+    async function loadTunes() {
+      if (tunes.length) return;
+      if (!loadPromise) {
+        statusMessage.textContent = "Loading the tune collection...";
+        loadPromise = fetch("./tunes.json")
+          .then((response) => {
+            if (!response.ok) throw new Error(`The tune file returned ${response.status}.`);
+            return response.text();
+          })
+          .then((text) => {
+            const trimmed = text.trim();
+            const jsonStart = trimmed.indexOf("[");
+            if (jsonStart < 0 || !["", "iterate"].includes(trimmed.slice(0, jsonStart).trim())) {
+              throw new Error("The tune file does not have the expected format.");
+            }
+
+            const rows = JSON.parse(trimmed.slice(jsonStart));
+            if (!Array.isArray(rows)) throw new Error("The tune file must contain a list of settings.");
+
+            const firstSettingByTune = new Map();
+            for (const setting of rows) {
+              if (!setting || setting.tune_id == null || !setting.name || typeof setting.abc !== "string") {
+                throw new Error("A tune setting is missing its tune ID, name, or ABC notation.");
+              }
+              if (!firstSettingByTune.has(String(setting.tune_id))) {
+                firstSettingByTune.set(String(setting.tune_id), setting);
+              }
+            }
+
+            tunes = Array.from(firstSettingByTune.values()).sort((a, b) => a.name.localeCompare(b.name));
+            if (!tunes.length) throw new Error("The tune file contains no searchable tunes.");
+
+            const types = [...new Set(tunes.map((tune) => tune.type).filter(Boolean))]
+              .sort((a, b) => a.localeCompare(b));
+            for (const type of types) {
+              const option = document.createElement("option");
+              option.value = type;
+              option.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+              typeFilter.append(option);
+            }
+          })
+          .catch((error) => {
+            loadPromise = null;
+            console.error("Unable to load the tune collection.", error);
+            statusMessage.textContent = `Unable to load tunes: ${error.message}`;
+            throw error;
+          });
+      }
+      return loadPromise;
+    }
+
+    function loadAbcjs() {
+      if (window.ABCJS?.renderAbc) return Promise.resolve(window.ABCJS);
+      if (!abcjsPromise) {
+        abcjsPromise = new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = "./vendor/abcjs-basic-min.js";
+          script.onload = () => {
+            if (window.ABCJS?.renderAbc) {
+              resolve(window.ABCJS);
+            } else {
+              reject(new Error("abcjs loaded without its rendering API."));
+            }
+          };
+          script.onerror = () => {
+            script.remove();
+            reject(new Error("Could not load the local abcjs renderer."));
+          };
+          document.head.append(script);
+        }).catch((error) => {
+          abcjsPromise = null;
+          throw error;
+        });
+      }
+      return abcjsPromise;
+    }
+
+    function abcKey(mode) {
+      const match = /^([A-G])(major|minor|dorian|mixolydian)$/.exec(mode || "");
+      if (!match) return "C";
+      const [, tonic, quality] = match;
+      const suffix = {
+        major: "",
+        minor: "m",
+        dorian: "dor",
+        mixolydian: "mix"
+      }[quality];
+      return `${tonic}${suffix}`;
+    }
+
+    function renderSelection(tune) {
+      selectionContainer.replaceChildren();
+
+      const title = document.createElement("h3");
+      title.textContent = tune.name;
+      selectionContainer.append(title);
+
+      const metadata = [tune.type, tune.meter, tune.mode, tune.composer]
+        .filter(Boolean)
+        .join(" · ");
+      const meta = document.createElement("p");
+      meta.className = "tune-selection-meta";
+      meta.textContent = metadata ? `${metadata} · Setting ${tune.setting_id}` : `Setting ${tune.setting_id}`;
+      selectionContainer.append(meta);
+
+      const label = document.createElement("p");
+      label.className = "tune-selection-label";
+      label.textContent = "Music and GDAE tablature";
+      selectionContainer.append(label);
+
+      const music = document.createElement("div");
+      music.className = "tune-music";
+      music.id = "tune-music";
+      music.setAttribute("role", "img");
+      music.setAttribute("aria-label", `${tune.name} in standard notation and GDAE tablature`);
+      selectionContainer.append(music);
+
+      const renderStatus = document.createElement("p");
+      renderStatus.className = "tune-render-status";
+      renderStatus.setAttribute("role", "status");
+      renderStatus.textContent = "Rendering notation...";
+      selectionContainer.append(renderStatus);
+
+      const cleanField = (value) => String(value || "").replace(/[\r\n]/g, " ").trim();
+      const abc = [
+        "X:1",
+        `T:${cleanField(tune.name)}`,
+        `M:${cleanField(tune.meter) || "4/4"}`,
+        `K:${abcKey(tune.mode)}`,
+        tune.abc
+      ].join("\n");
+
+      loadAbcjs()
+        .then((abcjs) => {
+          abcjs.renderAbc(music, abc, {
+            staffwidth: 800,
+            scale: 1,
+            tablature: [{
+              instrument: "mandolin",
+              label: "GDAE",
+              tuning: ["G,", "D", "A", "e"]
+            }]
+          });
+          renderStatus.textContent = "";
+        })
+        .catch((error) => {
+          console.error("Unable to render tune notation.", error);
+          renderStatus.textContent = `Unable to render notation: ${error.message}`;
+        });
+    }
+
+    function renderResults() {
+      const query = normalize(searchInput.value.trim());
+      const type = typeFilter.value;
+      resultsContainer.replaceChildren();
+
+      if (!query && !type) {
+        statusMessage.textContent = "Enter a tune name, composer, or select a tune type.";
+        return;
+      }
+
+      const matches = tunes.filter((tune) => {
+        const matchesType = !type || tune.type === type;
+        const searchableText = normalize([tune.name, tune.type, tune.composer, tune.mode].join(" "));
+        return matchesType && searchableText.includes(query);
+      });
+
+      const shown = matches.slice(0, 40);
+      for (const tune of shown) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "tune-result";
+        button.setAttribute("aria-pressed", String(String(tune.tune_id) === selectedTuneId));
+        button.addEventListener("click", () => {
+          selectedTuneId = String(tune.tune_id);
+          renderResults();
+          renderSelection(tune);
+        });
+
+        const name = document.createElement("span");
+        name.className = "tune-result-name";
+        name.textContent = tune.name;
+        button.append(name);
+
+        const meta = document.createElement("span");
+        meta.className = "tune-result-meta";
+        meta.textContent = [tune.type, tune.meter, tune.mode].filter(Boolean).join(" · ");
+        button.append(meta);
+        resultsContainer.append(button);
+      }
+
+      statusMessage.textContent = matches.length
+        ? `Found ${matches.length.toLocaleString()} tune${matches.length === 1 ? "" : "s"}${matches.length > shown.length ? `; showing the first ${shown.length}.` : "."}`
+        : "No tunes match that search. Try another name, composer, or type.";
+    }
+
+    function searchTunes() {
+      loadTunes()
+        .then(renderResults)
+        .catch((error) => {
+          statusMessage.textContent = `Unable to load tunes: ${error.message}`;
+        });
+    }
+
+    searchInput.addEventListener("focus", searchTunes);
+    searchInput.addEventListener("input", searchTunes);
+    typeFilter.addEventListener("focus", searchTunes);
+    typeFilter.addEventListener("change", searchTunes);
+  </script>
 </body>
 </html>
