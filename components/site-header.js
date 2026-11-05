@@ -57,15 +57,13 @@ class SiteHeader extends HTMLElement {
         }
 
         .brand-mark {
-          display: grid;
+          display: block;
           width: 34px;
           height: 34px;
-          place-items: center;
           border: 1px solid rgb(255 250 240 / 55%);
           border-radius: 50%;
-          color: #e8834d;
-          font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
-          font-size: 17px;
+          object-fit: cover;
+          object-position: 82% center;
         }
 
         .links {
@@ -110,8 +108,7 @@ class SiteHeader extends HTMLElement {
           min-height: 42px;
           padding: 0 12px;
           border: 1px solid rgb(255 250 240 / 48%);
-          border-right: 0;
-          border-radius: 3px 0 0 3px;
+          border-radius: 3px;
           background: rgb(255 250 240 / 96%);
           color: #20342c;
           cursor: text;
@@ -119,20 +116,9 @@ class SiteHeader extends HTMLElement {
         }
 
         input:focus-visible,
-        button:focus-visible {
+        .suggestion:focus-visible {
           outline: 3px solid #e8834d;
           outline-offset: 2px;
-        }
-
-        button {
-          min-width: 84px;
-          padding-inline: 14px;
-          border: 1px solid #e8834d;
-          border-radius: 0 3px 3px 0;
-          background: #e8834d;
-          color: #20342c;
-          cursor: pointer;
-          font: 700 12px "Avenir Next", Avenir, "Segoe UI", sans-serif;
         }
 
         .suggestions {
@@ -210,7 +196,7 @@ class SiteHeader extends HTMLElement {
       <header>
         <nav aria-label="Main navigation">
           <a class="brand" href="${siteRoot.href}">
-            <span class="brand-mark" aria-hidden="true">♪</span>
+            <img class="brand-mark" src="${new URL("banjo.png", siteRoot)}" alt="" aria-hidden="true">
             Irish Banjo Central
           </a>
           <div class="links">
@@ -220,7 +206,6 @@ class SiteHeader extends HTMLElement {
           <form role="search">
             <label for="tune-query">Search tunes by name, type, or composer</label>
             <input id="tune-query" type="search" name="q" placeholder="Search tunes by name, type, or composer" autocomplete="off" aria-controls="tune-suggestions" aria-expanded="false">
-            <button type="submit">Search</button>
             <div class="suggestions" id="tune-suggestions" role="listbox" aria-label="Tune suggestions" hidden></div>
           </form>
         </nav>
