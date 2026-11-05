@@ -131,7 +131,6 @@ function createTunePage(tune) {
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
     .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
-    .eyebrow { margin-bottom: 12px; color: #a45b37; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
     h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
     .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
     .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
@@ -149,7 +148,6 @@ function createTunePage(tune) {
 <body>
   <site-header solid></site-header>
   <main class="tune-page">
-    <p class="eyebrow">Irish tenor banjo tune</p>
     <h1>${title}</h1>
     <p class="metadata">${metadata}</p>
     <div class="music" id="tune-music" role="img" aria-label="${title} in standard notation and GDAE tablature"></div>
