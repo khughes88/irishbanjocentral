@@ -90,7 +90,7 @@ function createTunePage(tune) {
   const description = escapeHtml(
     `${tune.name} — ${[tune.type, tune.meter, tune.mode].filter(Boolean).join(", ")}. Music notation and GDAE tenor banjo tablature.`
   );
-  const metadata = [tune.type, tune.meter, tune.mode, tune.composer]
+  const metadata = [tune.type, tune.meter, tune.mode]
     .filter(Boolean)
     .map(escapeHtml)
     .join(" · ");
@@ -151,7 +151,7 @@ function createTunePage(tune) {
   <main class="tune-page">
     <p class="eyebrow">Irish tenor banjo tune</p>
     <h1>${title}</h1>
-    <p class="metadata">${metadata ? `${metadata} · ` : ""}Setting ${escapeHtml(tune.setting_id ?? "")}</p>
+    <p class="metadata">${metadata}</p>
     <div class="music" id="tune-music" role="img" aria-label="${title} in standard notation and GDAE tablature"></div>
     <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
     <details>
