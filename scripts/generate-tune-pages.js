@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -6,7 +6,7 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const SITE_DIR = path.resolve(SCRIPT_DIR, "..");
 const DATA_FILE = path.join(SITE_DIR, "tunes.json");
 const OUTPUT_DIR = path.join(SITE_DIR, "tunes");
-const DEFAULT_PAGE_LIMIT = Number.POSITIVE_INFINITY;
+const DEFAULT_PAGE_LIMIT = 10;
 
 function getPageLimit(args) {
   const limitIndex = args.findIndex((arg) => arg === "--limit" || arg.startsWith("--limit="));
@@ -186,6 +186,8 @@ function createTunePage(tune) {
       status.textContent = \`Unable to render notation: \${error.message}\`;
     }
   </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9338474555539130"
+       crossorigin="anonymous"></script>
 </body>
 </html>
 `;
@@ -215,6 +217,16 @@ async function main() {
       skipped += 1;
     }
   }
+
+  const existingFiles = new Set(await readdir(OUTPUT_DIR));
+  const availableTuneIds = uniqueTunesInSourceOrder(rows)
+    .filter((tune) => existingFiles.has(`${slugify(String(tune.tune_id))}-${slugify(tune.name)}.html`))
+    .map((tune) => String(tune.tune_id));
+  await writeFile(
+    path.join(OUTPUT_DIR, "manifest.json"),
+    `${JSON.stringify(availableTuneIds)}\n`,
+    "utf8"
+  );
 
   console.log(`Generated ${generated} page${generated === 1 ? "" : "s"}; skipped ${skipped} existing.`);
 }

@@ -86,16 +86,6 @@ class SiteHeader extends HTMLElement {
 
         .links a:hover { color: #fff; }
 
-        .links .cta {
-          padding: 11px 16px;
-          border: 1px solid rgb(255 250 240 / 48%);
-          border-radius: 3px;
-          background: transparent;
-          color: #fffaf0;
-          cursor: pointer;
-          font: inherit;
-        }
-
         form {
           position: relative;
           grid-area: search;
@@ -206,7 +196,6 @@ class SiteHeader extends HTMLElement {
           .brand { font-size: 17px; }
           .links { gap: 18px; }
           .links a { font-size: 12px; }
-          .links .cta { padding: 9px 11px; }
         }
 
         @media (max-width: 420px) {
@@ -227,7 +216,6 @@ class SiteHeader extends HTMLElement {
           <div class="links">
             <a href="${siteRoot.href}#about">About</a>
             <a href="${siteRoot.href}#explore">How to read tablature</a>
-            <button class="cta" id="focus-search" type="button">Search tunes <span aria-hidden="true">↗</span></button>
           </div>
           <form role="search">
             <label for="tune-query">Search tunes by name, type, or composer</label>
@@ -241,7 +229,6 @@ class SiteHeader extends HTMLElement {
     const form = root.querySelector("form");
     const input = root.querySelector("#tune-query");
     const suggestions = root.querySelector(".suggestions");
-    root.querySelector("#focus-search").addEventListener("click", () => input.focus());
     input.value = new URL(window.location.href).searchParams.get("q") || "";
     input.addEventListener("input", () => {
       this.searchTunes(input.value, suggestions, input);
@@ -312,12 +299,17 @@ class SiteHeader extends HTMLElement {
 
   async loadTuneIndex() {
     if (!tuneIndexPromise) {
-      tuneIndexPromise = fetch(new URL("tunes.json", siteRoot))
-        .then((response) => {
-          if (!response.ok) throw new Error(`The tune file returned ${response.status}.`);
-          return response.text();
-        })
-        .then((source) => {
+      tuneIndexPromise = Promise.all([
+        fetch(new URL("tunes.json", siteRoot)),
+        fetch(new URL("tunes/manifest.json", siteRoot))
+      ])
+        .then(async ([tunesResponse, manifestResponse]) => {
+          if (!tunesResponse.ok) throw new Error(`The tune file returned ${tunesResponse.status}.`);
+          if (!manifestResponse.ok) throw new Error(`The tune page manifest returned ${manifestResponse.status}.`);
+          const [source, manifest] = await Promise.all([
+            tunesResponse.text(),
+            manifestResponse.json()
+          ]);
           const trimmed = source.trim();
           const arrayStart = trimmed.indexOf("[");
           if (arrayStart < 0 || !["", "iterate"].includes(trimmed.slice(0, arrayStart).trim())) {
@@ -325,12 +317,16 @@ class SiteHeader extends HTMLElement {
           }
           const rows = JSON.parse(trimmed.slice(arrayStart));
           if (!Array.isArray(rows)) throw new Error("The tune file must contain a list of settings.");
+          if (!Array.isArray(manifest) || manifest.some((id) => typeof id !== "string")) {
+            throw new Error("The generated tune page manifest has an invalid format.");
+          }
+          const availableTuneIds = new Set(manifest);
           const firstSettingById = new Map();
           for (const setting of rows) {
             if (!setting || setting.tune_id == null || !setting.name || typeof setting.abc !== "string") {
               throw new Error("A tune setting is missing its tune ID, name, or ABC notation.");
             }
-            if (!firstSettingById.has(String(setting.tune_id))) {
+            if (availableTuneIds.has(String(setting.tune_id)) && !firstSettingById.has(String(setting.tune_id))) {
               firstSettingById.set(String(setting.tune_id), setting);
             }
           }
