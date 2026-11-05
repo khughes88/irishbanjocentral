@@ -154,17 +154,12 @@ function createTunePage(tune) {
     <p class="metadata">${metadata}</p>
     <div class="music" id="tune-music" role="img" aria-label="${title} in standard notation and GDAE tablature"></div>
     <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
-    <details>
-      <summary>View ABC notation</summary>
-      <pre id="abc-source"></pre>
-    </details>
   </main>
   <site-footer></site-footer>
   <script type="application/json" id="tune-data">${embeddedTune}</script>
   <script src="../vendor/abcjs-basic-min.js"></script>
   <script>
     const tune = JSON.parse(document.querySelector("#tune-data").textContent);
-    document.querySelector("#abc-source").textContent = tune.abc;
     const music = document.querySelector("#tune-music");
     const status = document.querySelector("#render-status");
 

@@ -45,17 +45,12 @@
     <p class="metadata">polka · 2/4 · Gmajor</p>
     <div class="music" id="tune-music" role="img" aria-label="$150 Boot, The in standard notation and GDAE tablature"></div>
     <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
-    <details>
-      <summary>View ABC notation</summary>
-      <pre id="abc-source"></pre>
-    </details>
   </main>
   <site-footer></site-footer>
   <script type="application/json" id="tune-data">{"name":"$150 Boot, The","abc":"X:1\nT:$150 Boot, The\nM:2/4\nK:G\n|:d\u003eg fe|dB AG|E/F/G E/F/G|BA GF|\r\nd\u003eg fe|dB AG|E/F/G E/F/G|BA G2:|\r\n|:e\u003ef ga|ba gf|e/f/g e/f/g|d/c/B/A/ BA|\r\ne\u003ef ga|ba gf|e/f/g e/f/g|ag g2:|","settingId":"35234"}</script>
   <script src="../vendor/abcjs-basic-min.js"></script>
   <script>
     const tune = JSON.parse(document.querySelector("#tune-data").textContent);
-    document.querySelector("#abc-source").textContent = tune.abc;
     const music = document.querySelector("#tune-music");
     const status = document.querySelector("#render-status");
 

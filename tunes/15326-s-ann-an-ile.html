@@ -45,17 +45,12 @@
     <p class="metadata">strathspey · 4/4 · Gmajor</p>
     <div class="music" id="tune-music" role="img" aria-label="&#39;S Ann An Ìle in standard notation and GDAE tablature"></div>
     <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
-    <details>
-      <summary>View ABC notation</summary>
-      <pre id="abc-source"></pre>
-    </details>
   </main>
   <site-footer></site-footer>
   <script type="application/json" id="tune-data">{"name":"'S Ann An Ìle","abc":"X:1\nT:'S Ann An Ìle\nM:4/4\nK:G\n|:G\u003eA B\u003eG c\u003eA B\u003eG|E\u003cE A\u003eG F\u003cD D2|G\u003eA B\u003eG c\u003eA B\u003eG|E\u003eA F\u003eD G2 G2:|\r\n|:D\u003eD D\u003eD (3DDD D\u003eD|d\u003eB A\u003eB G\u003cE E2|D\u003eD D\u003eD (3DDD D\u003eD|d\u003eB A\u003eB G2 G2:|","settingId":"28560"}</script>
   <script src="../vendor/abcjs-basic-min.js"></script>
   <script>
     const tune = JSON.parse(document.querySelector("#tune-data").textContent);
-    document.querySelector("#abc-source").textContent = tune.abc;
     const music = document.querySelector("#tune-music");
     const status = document.querySelector("#render-status");
 

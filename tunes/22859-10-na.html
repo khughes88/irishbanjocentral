@@ -45,17 +45,12 @@
     <p class="metadata">slip jig · 9/8 · Adorian</p>
     <div class="music" id="tune-music" role="img" aria-label="10-Na in standard notation and GDAE tablature"></div>
     <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
-    <details>
-      <summary>View ABC notation</summary>
-      <pre id="abc-source"></pre>
-    </details>
   </main>
   <site-footer></site-footer>
   <script type="application/json" id="tune-data">{"name":"10-Na","abc":"X:1\nT:10-Na\nM:9/8\nK:Ador\n|:E2A ABc B2G|c2A ABc B2G|E2A ABc B2G|1 e2c cde d2G:|2 e2c cde d2B||\r\nc2e ece d2B|c2A ABc B2G|c2e ece d2B|c2A ABc Bcd|\r\nc2e ece d2B|c2A ABc B2G|E2A ABc B2G|e2c cde d2B||\r\nK:D\r\nc2A ABc d2B|c2A ABc B2G|E2A ABc d2B|e2c cde d2B|\r\nE2A ABc d2B|c2A ABc B2G|E2A ABc d2B|e2c cde Bcd|\r\nc2e ece d2B|c2A ABc B2G|c2e ece d2B|c2A ABc Bcd|\r\nc2e ece d2B|c2A ABc B2G|E2A ABc B2G|e2c cde dcB||","settingId":"46394"}</script>
   <script src="../vendor/abcjs-basic-min.js"></script>
   <script>
     const tune = JSON.parse(document.querySelector("#tune-data").textContent);
-    document.querySelector("#abc-source").textContent = tune.abc;
     const music = document.querySelector("#tune-music");
     const status = document.querySelector("#render-status");
 

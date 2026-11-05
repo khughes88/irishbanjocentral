@@ -45,17 +45,12 @@
     <p class="metadata">jig · 6/8 · Dmajor</p>
     <div class="music" id="tune-music" role="img" aria-label="&#39;Twould Have Melted The Heart Of A Stone in standard notation and GDAE tablature"></div>
     <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
-    <details>
-      <summary>View ABC notation</summary>
-      <pre id="abc-source"></pre>
-    </details>
   </main>
   <site-footer></site-footer>
   <script type="application/json" id="tune-data">{"name":"'Twould Have Melted The Heart Of A Stone","abc":"X:1\nT:'Twould Have Melted The Heart Of A Stone\nM:6/8\nK:D\nA|Add dcd|e2e efd|Add dcd|ecA d2A|Add dcd|\r\nefg afd|Add dcd|ecA d2d|dfa afd|ceg fdc|\r\nd2d dfd|cAc d2B|AFF GEc|d3 z2B|AFF GEc|d3z2g|\r\nfdf fdf|a3zag|fdd gec|d3zcB|AFF GEA|d3dcB|\r\nAGF GEc|d3z2g|fdf fdf|a3zag|fdd gec|d3z2||","settingId":"34545"}</script>
   <script src="../vendor/abcjs-basic-min.js"></script>
   <script>
     const tune = JSON.parse(document.querySelector("#tune-data").textContent);
-    document.querySelector("#abc-source").textContent = tune.abc;
     const music = document.querySelector("#tune-music");
     const status = document.querySelector("#render-status");
 

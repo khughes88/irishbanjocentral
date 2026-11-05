@@ -45,17 +45,12 @@
     <p class="metadata">reel · 4/4 · Gmajor</p>
     <div class="music" id="tune-music" role="img" aria-label="&#39;Tis Better To Wear Out Than Rust Out in standard notation and GDAE tablature"></div>
     <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
-    <details>
-      <summary>View ABC notation</summary>
-      <pre id="abc-source"></pre>
-    </details>
   </main>
   <site-footer></site-footer>
   <script type="application/json" id="tune-data">{"name":"'Tis Better To Wear Out Than Rust Out","abc":"X:1\nT:'Tis Better To Wear Out Than Rust Out\nM:4/4\nK:G\n|: AB | cA (3ABA AGEG | cA (3ABA AGEF | GD (3DED B,D (3DED | GBAF GEDG | \r\ncA (3ABA AGEG | cA (3ABA AGEF|[D3G3] D EDB,D | GABG A3 B | \r\n(3cdc cA BAGB | (3cdc cA BAGB | AF (3FGF DF (3FGF | AFBF AF F2 |\r\n(3cdc cA BAGB | (3cdc cA BAGF |G2 GD EDB,D |1 GABG [F3A3] B:|2 GABG A4 ||","settingId":"51572"}</script>
   <script src="../vendor/abcjs-basic-min.js"></script>
   <script>
     const tune = JSON.parse(document.querySelector("#tune-data").textContent);
-    document.querySelector("#abc-source").textContent = tune.abc;
     const music = document.querySelector("#tune-music");
     const status = document.querySelector("#render-status");
 

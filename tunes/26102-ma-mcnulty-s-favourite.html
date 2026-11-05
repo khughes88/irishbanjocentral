@@ -45,17 +45,12 @@
     <p class="metadata">hornpipe · 4/4 · Edorian</p>
     <div class="music" id="tune-music" role="img" aria-label="&#39;Ma&#39; McNulty&#39;s Favourite in standard notation and GDAE tablature"></div>
     <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
-    <details>
-      <summary>View ABC notation</summary>
-      <pre id="abc-source"></pre>
-    </details>
   </main>
   <site-footer></site-footer>
   <script type="application/json" id="tune-data">{"name":"'Ma' McNulty's Favourite","abc":"X:1\nT:'Ma' McNulty's Favourite\nM:4/4\nK:Edor\nB2 E\u003eF G\u003eA B2|A2 D\u003eE F\u003eG A2| B2 E\u003eF G\u003eAB\u003ec| d\u003eBA\u003eF E2 d\u003ec|\r\nB2 E\u003eF G\u003eA B2|A2 D\u003eE F\u003eG A2| B2 E\u003eF G\u003eAB\u003ec| d\u003eBA\u003eF E2E2||\r\ne2 d\u003ef e\u003edB\u003ec|d2 c\u003ee d\u003eB A2|B\u003ce d\u003ef e\u003edB\u003ec|d\u003eBA\u003eF E2|\r\ne2 d\u003ef e\u003edB\u003ec|d2 c\u003ee d\u003eBA\u003eF|E\u003eFG\u003eA B\u003cee\u003ed|B2 A\u003eF E2 d\u003ec||","settingId":"55813"}</script>
   <script src="../vendor/abcjs-basic-min.js"></script>
   <script>
     const tune = JSON.parse(document.querySelector("#tune-data").textContent);
-    document.querySelector("#abc-source").textContent = tune.abc;
     const music = document.querySelector("#tune-music");
     const status = document.querySelector("#render-status");
 
