@@ -204,8 +204,8 @@ class SiteHeader extends HTMLElement {
             <a href="${siteRoot.href}#explore">How to read tablature</a>
           </div>
           <form role="search">
-            <label for="tune-query">Search tunes by name, type, or composer</label>
-            <input id="tune-query" type="search" name="q" placeholder="Search tunes by name, type, or composer" autocomplete="off" aria-controls="tune-suggestions" aria-expanded="false">
+            <label for="tune-query">Search tunes by name</label>
+            <input id="tune-query" type="search" name="q" placeholder="Search tunes by name" autocomplete="off" aria-controls="tune-suggestions" aria-expanded="false">
             <div class="suggestions" id="tune-suggestions" role="listbox" aria-label="Tune suggestions" hidden></div>
           </form>
         </nav>
@@ -259,7 +259,7 @@ class SiteHeader extends HTMLElement {
       const tunes = await this.loadTuneIndex();
       const normalizedQuery = this.normalize(currentQuery);
       const matches = tunes.filter((tune) =>
-        this.normalize([tune.name, tune.type, tune.composer, tune.mode].join(" ")).includes(normalizedQuery)
+        this.normalize(tune.name).includes(normalizedQuery)
       );
       matches.sort((a, b) => {
         const nameA = this.normalize(a.name);
