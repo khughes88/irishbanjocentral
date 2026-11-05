@@ -6,6 +6,8 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const SITE_DIR = path.resolve(SCRIPT_DIR, "..");
 const DATA_FILE = path.join(SITE_DIR, "tunes.json");
 const OUTPUT_DIR = path.join(SITE_DIR, "tunes");
+const SITEMAP_FILE = path.join(SITE_DIR, "sitemap.xml");
+const SITE_URL = "https://irishbanjocentral.com";
 const DEFAULT_PAGE_LIMIT = 10;
 
 function getPageLimit(args) {
@@ -64,6 +66,15 @@ function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 function abcKey(mode) {
   const match = /^([A-G])(major|minor|dorian|mixolydian)$/.exec(mode || "");
   if (!match) return "C";
@@ -88,7 +99,7 @@ function safeJson(value) {
 function createTunePage(tune) {
   const title = escapeHtml(tune.name);
   const description = escapeHtml(
-    `${tune.name} — ${[tune.type, tune.meter, tune.mode].filter(Boolean).join(", ")}. Music notation and GDAE tenor banjo tablature.`
+    `View ${tune.name} in standard notation with Irish tenor banjo tablature in GDAE tuning. ${[tune.type, tune.meter, tune.mode].filter(Boolean).join(", ")}.`
   );
   const metadata = [tune.type, tune.meter, tune.mode]
     .filter(Boolean)
@@ -114,7 +125,12 @@ function createTunePage(tune) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="${description}">
   <meta name="theme-color" content="#153a32">
-  <title>${title} — Irish Banjo Central</title>
+  <link rel="canonical" href="${SITE_URL}/tunes/${slugify(String(tune.tune_id))}-${slugify(tune.name)}.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="${title} banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="${description}">
+  <meta property="og:url" content="${SITE_URL}/tunes/${slugify(String(tune.tune_id))}-${slugify(tune.name)}.html">
+  <title>${title} Banjo Tablature | Irish Banjo Central</title>
   <script defer src="../components/site-header.js"></script>
   <script defer src="../components/site-footer.js"></script>
   <style>
@@ -212,14 +228,25 @@ async function main() {
   }
 
   const existingFiles = new Set(await readdir(OUTPUT_DIR));
-  const availableTuneIds = uniqueTunesInSourceOrder(rows)
-    .filter((tune) => existingFiles.has(`${slugify(String(tune.tune_id))}-${slugify(tune.name)}.html`))
-    .map((tune) => String(tune.tune_id));
+  const availableTunes = uniqueTunesInSourceOrder(rows)
+    .filter((tune) => existingFiles.has(`${slugify(String(tune.tune_id))}-${slugify(tune.name)}.html`));
+  const availableTuneIds = availableTunes.map((tune) => String(tune.tune_id));
   await writeFile(
     path.join(OUTPUT_DIR, "manifest.json"),
     `${JSON.stringify(availableTuneIds)}\n`,
     "utf8"
   );
+
+  const sitemapUrls = [
+    `${SITE_URL}/`,
+    ...availableTunes.map((tune) =>
+      `${SITE_URL}/tunes/${slugify(String(tune.tune_id))}-${slugify(tune.name)}.html`
+    )
+  ];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls
+    .map((url) => `  <url><loc>${escapeXml(url)}</loc></url>`)
+    .join("\n")}\n</urlset>\n`;
+  await writeFile(SITEMAP_FILE, sitemap, "utf8");
 
   console.log(`Generated ${generated} page${generated === 1 ? "" : "s"}; skipped ${skipped} existing.`);
 }
