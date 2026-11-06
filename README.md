@@ -23,13 +23,21 @@ The tune-page generator also updates `sitemap.xml` with the home page and every 
 
 ## Generate tune pages
 
+The generator uses the Gemini Developer API to write a short, three-sentence tune overview. Create an API key in [Google AI Studio](https://aistudio.google.com/api-keys), then set it in your shell before running the generator:
+
+```sh
+export GEMINI_API_KEY="your-api-key"
+```
+
+The default model is `gemini-3.5-flash-lite`; set `GEMINI_MODEL` to use another model available to your API key. Free-tier model access and quotas depend on Google's current availability. The key is read from the environment and is never written to generated pages. Gemini's free tier may use submitted prompts to improve Google products, so review Google's terms and fact-check generated historical details before publishing.
+
 Generate static HTML pages for the first 10 unique tunes in `tunes.json`:
 
 ```sh
 node scripts/generate-tune-pages.js
 ```
 
-Each generated page lives in `tunes/`, includes the shared header and footer, embeds the tune's ABC notation, and renders standard notation with GDAE tablature using the local abcjs library. Filenames start with the tune ID, followed by a tune-name slug, matching the links in the shared header's search suggestions. The generator writes a manifest so search only offers tunes with generated pages. Existing pages are skipped and never overwritten, so rerunning the generator does not create duplicates. To generate a different-sized subset, pass `--limit`:
+Each generated page lives in `tunes/`, includes the shared header and footer, embeds the tune's ABC notation, and renders standard notation with GDAE tablature using the local abcjs library. The generated overview covers the tune's background, rhythm, and character; the prompt instructs Gemini not to invent historical claims, but fact-check the text before publishing. Existing pages without an overview receive one without replacing their other content; completed pages are skipped. Filenames start with the tune ID, followed by a tune-name slug, matching the links in the shared header's search suggestions. The generator writes a manifest so search only offers tunes with generated pages. To generate a different-sized subset, pass `--limit`:
 
 ```sh
 node scripts/generate-tune-pages.js --limit 100

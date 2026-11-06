@@ -363,7 +363,16 @@ class SiteHeader extends HTMLElement {
 
       const meta = document.createElement("span");
       meta.className = "suggestion-meta";
-      meta.textContent = [tune.type, tune.meter, tune.mode].filter(Boolean).join(" · ");
+      const tuneType = String(tune.type || "");
+      const tuneMode = String(tune.mode || "").replace(
+        /^([A-G])(major|minor|dorian|mixolydian)$/i,
+        (_, tonic, quality) => `${tonic} ${quality.toLowerCase()}`
+      );
+      meta.textContent = [
+        tuneType ? tuneType[0].toUpperCase() + tuneType.slice(1) : "",
+        tune.meter,
+        tuneMode
+      ].filter(Boolean).join(" · ");
       option.append(meta);
 
       option.addEventListener("click", () => this.openTune(tune));

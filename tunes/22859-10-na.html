@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="10-Na — slip jig, 9/8, Adorian. Music notation and GDAE tenor banjo tablature.">
+  <meta name="description" content="View 10-Na in standard notation with Irish tenor banjo tablature in GDAE tuning. Slip jig, 9/8, A dorian.">
   <meta name="theme-color" content="#153a32">
   <link rel="canonical" href="https://irishbanjocentral.com/tunes/22859-10-na.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="10-Na banjo tablature | Irish Banjo Central">
-  <meta property="og:description" content="View 10-Na in standard notation with Irish tenor banjo tablature in GDAE tuning. slip jig, 9/8, Adorian.">
+  <meta property="og:description" content="View 10-Na in standard notation with Irish tenor banjo tablature in GDAE tuning. Slip jig, 9/8, A dorian.">
   <meta property="og:url" content="https://irishbanjocentral.com/tunes/22859-10-na.html">
   <title>10-Na Banjo Tablature | Irish Banjo Central</title>
   <script defer src="../components/site-header.js"></script>
@@ -29,6 +29,7 @@
     .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
     h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
     .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
     .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
     .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
     .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
@@ -45,7 +46,8 @@
   <site-header solid></site-header>
   <main class="tune-page">
     <h1>10-Na</h1>
-    <p class="metadata">slip jig · 9/8 · Adorian</p>
+    <p class="metadata">Slip jig · 9/8 · A dorian</p>
+    <p class="tune-overview">10-Na is a traditional Irish slip jig in the key of A Dorian, structured in a lively 9/8 meter. Its specific geographical origin and composer are not historically documented, so it is treated strictly as an anonymous traditional tune. The melody is driven by the characteristic, bounding rhythm of the slip jig, making it a dynamic and engaging piece for both dancers and musicians in the traditional repertoire.</p>
     <div class="music" id="tune-music" role="img" aria-label="10-Na in standard notation and GDAE tablature"></div>
     <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
   </main>
@@ -75,7 +77,5 @@
       status.textContent = `Unable to render notation: ${error.message}`;
     }
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9338474555539130"
-       crossorigin="anonymous"></script>
 </body>
 </html>
