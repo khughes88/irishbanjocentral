@@ -308,6 +308,7 @@ async function updateSearchArtifacts(rows) {
 
   const sitemapUrls = [
     `${SITE_URL}/`,
+    `${SITE_URL}/privacy.html`,
     ...availableTunes.map((tune) =>
       `${SITE_URL}/tunes/${slugify(String(tune.tune_id))}-${slugify(tune.name)}.html`
     )

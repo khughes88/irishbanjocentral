@@ -35,6 +35,7 @@ class SiteFooter extends HTMLElement {
         p { margin: 0; }
 
         .attribution { flex-basis: 100%; font-size: 10px; }
+        .privacy { color: #fffaf0; }
 
         a { color: inherit; }
 
@@ -51,6 +52,7 @@ class SiteFooter extends HTMLElement {
           <span class="brand">Irish Banjo Central</span>
           <p>Irish tenor banjo tablature archive</p>
           <p> . &copy; ${new Date().getFullYear()}</p>
+          <p><a class="privacy" href="/privacy.html">Privacy Policy</a></p>
           <p class="attribution">Contains information from <a href="https://github.com/adactio/TheSession-data">The Session</a>, made available under the <a href="https://opendatacommons.org/licenses/odbl/1-0/">Open Database License (ODbL)</a>.</p>
         </div>
       </footer>`;

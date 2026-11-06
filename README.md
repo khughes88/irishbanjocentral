@@ -20,6 +20,7 @@ Reuse the site header and footer on other pages by adding the component scripts 
 The header links back to the corresponding sections on the home page.
 Its tune search shows selectable tune suggestions directly below the field. Suggestions are limited to tunes with generated pages, and selecting one opens that page.
 The tune-page generator also updates `sitemap.xml` with the home page and every generated tune page; `robots.txt` points crawlers to the sitemap.
+The shared footer links to `privacy.html`. Configure and publish the Google-certified consent message in AdSense before enabling ads for visitors in the EEA, UK, or Switzerland.
 
 ## Generate tune pages
 
