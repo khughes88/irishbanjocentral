@@ -51,6 +51,7 @@ class SiteFooter extends HTMLElement {
         <div class="inner">
           <span class="brand">Irish Banjo Central</span>
           <p>Irish tenor banjo tablature archive</p>
+          <p><a class="privacy" href="/tune-index.html">Browse tunes A–Z</a></p>
           <p>  &copy; ${new Date().getFullYear()}</p>
           <p><a class="privacy" href="/privacy.html">Privacy Policy</a></p>
           <p class="attribution">Contains information from <a href="https://github.com/adactio/TheSession-data">The Session</a>, made available under the <a href="https://opendatacommons.org/licenses/odbl/1-0/">Open Database License (ODbL)</a>.</p>

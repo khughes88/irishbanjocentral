@@ -19,7 +19,7 @@ Reuse the site header and footer on other pages by adding the component scripts 
 
 The header links back to the corresponding sections on the home page.
 Its tune search shows selectable tune suggestions directly below the field. Suggestions are limited to tunes with generated pages, and selecting one opens that page.
-The tune-page generator also updates `sitemap.xml` with the home page and every generated tune page; `robots.txt` points crawlers to the sitemap.
+The footer links to a generated A–Z tune index. The index has a small landing page and separate static pages per initial, listing only tunes with generated pages; the generator refreshes the index, search manifest, and `sitemap.xml` together. `robots.txt` points crawlers to the sitemap.
 The shared footer links to `privacy.html`. Configure and publish the Google-certified consent message in AdSense before enabling ads for visitors in the EEA, UK, or Switzerland.
 
 ## Generate tune pages
@@ -42,4 +42,10 @@ Each generated page lives in `tunes/`, includes the shared header and footer, em
 
 ```sh
 node scripts/generate-tune-pages.js --limit 100
+```
+
+Tune index pages are split by initial and paginated in groups of 250 entries, so the directory remains manageable as the library grows. To refresh the index, search manifest, and sitemap without generating tune pages or calling Gemini:
+
+```sh
+node scripts/generate-tune-pages.js --index-only
 ```
