@@ -329,7 +329,9 @@ class SiteHeader extends HTMLElement {
     return String(value || "")
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
-      .toLocaleLowerCase();
+      .toLocaleLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, " ")
+      .trim();
   }
 
   renderSuggestions(tunes, container, input, total = tunes.length) {

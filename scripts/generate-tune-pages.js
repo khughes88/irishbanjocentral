@@ -295,6 +295,29 @@ async function readExistingPage(file) {
   }
 }
 
+async function updateSearchArtifacts(rows) {
+  const existingFiles = new Set(await readdir(OUTPUT_DIR));
+  const availableTunes = uniqueTunesInSourceOrder(rows)
+    .filter((tune) => existingFiles.has(`${slugify(String(tune.tune_id))}-${slugify(tune.name)}.html`));
+  const availableTuneIds = availableTunes.map((tune) => String(tune.tune_id));
+  await writeFile(
+    path.join(OUTPUT_DIR, "manifest.json"),
+    `${JSON.stringify(availableTuneIds)}\n`,
+    "utf8"
+  );
+
+  const sitemapUrls = [
+    `${SITE_URL}/`,
+    ...availableTunes.map((tune) =>
+      `${SITE_URL}/tunes/${slugify(String(tune.tune_id))}-${slugify(tune.name)}.html`
+    )
+  ];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls
+    .map((url) => `  <url><loc>${escapeXml(url)}</loc></url>`)
+    .join("\n")}\n</urlset>\n`;
+  await writeFile(SITEMAP_FILE, sitemap, "utf8");
+}
+
 async function main() {
   const pageLimit = getPageLimit(process.argv.slice(2));
   const source = await readFile(DATA_FILE, "utf8");
@@ -303,6 +326,7 @@ async function main() {
   if (!tunes.length) throw new Error("No tunes were found in tunes.json.");
 
   await mkdir(OUTPUT_DIR, { recursive: true });
+  await updateSearchArtifacts(rows);
 
   let generated = 0;
   let updated = 0;
@@ -349,26 +373,7 @@ async function main() {
     }
   }
 
-  const existingFiles = new Set(await readdir(OUTPUT_DIR));
-  const availableTunes = uniqueTunesInSourceOrder(rows)
-    .filter((tune) => existingFiles.has(`${slugify(String(tune.tune_id))}-${slugify(tune.name)}.html`));
-  const availableTuneIds = availableTunes.map((tune) => String(tune.tune_id));
-  await writeFile(
-    path.join(OUTPUT_DIR, "manifest.json"),
-    `${JSON.stringify(availableTuneIds)}\n`,
-    "utf8"
-  );
-
-  const sitemapUrls = [
-    `${SITE_URL}/`,
-    ...availableTunes.map((tune) =>
-      `${SITE_URL}/tunes/${slugify(String(tune.tune_id))}-${slugify(tune.name)}.html`
-    )
-  ];
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls
-    .map((url) => `  <url><loc>${escapeXml(url)}</loc></url>`)
-    .join("\n")}\n</urlset>\n`;
-  await writeFile(SITEMAP_FILE, sitemap, "utf8");
+  await updateSearchArtifacts(rows);
 
   console.log(
     `Generated ${generated} page${generated === 1 ? "" : "s"}; added overviews to ${updated} existing page${updated === 1 ? "" : "s"}; skipped ${skipped} complete page${skipped === 1 ? "" : "s"}.`
