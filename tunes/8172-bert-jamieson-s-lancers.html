@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Bert Jamieson&#39;s Lancers in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, G major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/8172-bert-jamieson-s-lancers.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bert Jamieson&#39;s Lancers banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Bert Jamieson&#39;s Lancers in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, G major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/8172-bert-jamieson-s-lancers.html">
+  <title>Bert Jamieson&#39;s Lancers Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Bert Jamieson&#39;s Lancers</h1>
+    <p class="metadata">Jig · 6/8 · G major</p>
+    <p class="tune-overview">Bert Jamieson&#39;s Lancers is a traditional jig in six-eight meter and the key of G major, though its precise geographical origin and historical background remain uncertain. Because detailed biographical and historical records for the tune are not established, its character is best defined by its lively tempo and rhythmic bounce typical of traditional dance repertoire. It is commonly performed in a spirited, driving style well-suited for social dancing and traditional music sessions.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Bert Jamieson&#39;s Lancers in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Bert Jamieson's Lancers","abc":"X:1\nT:Bert Jamieson's Lancers\nM:6/8\nK:G\n|:d|B2 B B^AB|c2 c cBc|d2 d dcB|A3- A2 d|\r\nB2 B B^AB|cdc cBc|ded cBA|G3- G2:|\r\n|:d|g\u003efe dBG|c2 d e2 d|gg/f/e dBG|A3- A2 d|\r\ng2 e dBG|c2 d ege|d^cd =cAF|G3- G2:|\r\n|:F|G2 B B/c/dB|G2 B B2 d|e2 d dBG|A2 d ^c2 d|\r\nF2 A ABA|F2 A A2 d|edd cBA|1 B2 ^A B2:|2 G3- G2||\r\n|:f|g2 d B2 d|e2 f g2 a|b2 a gfe|d3- d^cd|\r\ne2 e gfe|d2 d d^cd|1 A2 d ^c2 d|A3- A2:|2 fed cBA|G3- G2||","settingId":"8172"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

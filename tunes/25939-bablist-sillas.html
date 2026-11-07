@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Bablist Sillas in standard notation with Irish tenor banjo tablature in GDAE tuning. Polka, 2/4, G major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/25939-bablist-sillas.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bablist Sillas banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Bablist Sillas in standard notation with Irish tenor banjo tablature in GDAE tuning. Polka, 2/4, G major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/25939-bablist-sillas.html">
+  <title>Bablist Sillas Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Bablist Sillas</h1>
+    <p class="metadata">Polka · 2/4 · G major</p>
+    <p class="tune-overview">Bablist Sillas is a traditional polka from an uncertain geographic and historical background, though its style aligns closely with standard European folk dance repertoires. Written in G major with a brisk 2/4 meter, the tune is characterized by a lively and rhythmic pulse well-suited for social dancing. Because specific historical associations and composer details are not established, musicians typically interpret the piece with a bright, energetic articulation typical of traditional instrumental folk music.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Bablist Sillas in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Bablist Sillas","abc":"X:1\nT:Bablist Sillas\nM:2/4\nK:G\n|:(d/c/)| BA (E/F/)G | DG (B/c/)d | cA E\u003eG| (F/G/)A/B/ (c/e/)d/c/ |\r\nBA (E/F/)G | DG (B/c/)d | c(B/A/) dF| AG G :|\r\n|:(A/G/)|F/G/A/B/ cF| A/G/G FE| ^D/E/F/G/ AD| FE E(A/G/)\r\nF/G/A/B/ c/d/e/f/ | g/f/e/d/ c/B/A/G/| F/G/A/B/ cA | AG G:|","settingId":"55188"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

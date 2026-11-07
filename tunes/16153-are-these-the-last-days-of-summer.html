@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Are These The Last Days Of Summer? in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, E minor.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/16153-are-these-the-last-days-of-summer.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Are These The Last Days Of Summer? banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Are These The Last Days Of Summer? in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, E minor.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/16153-are-these-the-last-days-of-summer.html">
+  <title>Are These The Last Days Of Summer? Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Are These The Last Days Of Summer?</h1>
+    <p class="metadata">Reel · 4/4 · E minor</p>
+    <p class="tune-overview">Are These The Last Days Of Summer? is a contemporary reel composed by Roger Peppé in 4/4 meter. Written in E minor, the tune features a driving rhythmic pulse well-suited for traditional Irish and Scottish dance settings. Because its historical background remains limited, the tune is best defined by its engaging melodic contour and lively performance style.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Are These The Last Days Of Summer? in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Are These The Last Days Of Summer?","abc":"X:1\nT:Are These The Last Days Of Summer?\nM:4/4\nK:Em\n|:B2 GB d2c2|B3 G BcBA|G2 EG B2 A2|F3 D FGFD|\r\nE2 CE G2 F2|D3 D FGFD|E3 E EF G2|G2 F2 D2 FA:|\r\nB2 GB e2 f2|g3 d B3 g|f3 d BABd|e3 E E3 F|\r\nG2 FG e2 d2|B3 G G3 A|B2 GB d2 c2|B2 z2 E3 F|\r\nGFGB e2 f2|g3 d B3 g|f3 d BABd|e3 E E3 F|\r\nG2 FG e2 d2|B3 G G3 A|B2 GB A2 F2|E4EFGA||","settingId":"30464"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>
