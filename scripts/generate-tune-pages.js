@@ -16,7 +16,7 @@ const GOOGLE_TAG = `  <script async src="https://www.googletagmanager.com/gtm.js
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   </script>`;
-const DEFAULT_PAGE_LIMIT = 250;
+const DEFAULT_PAGE_LIMIT = 1000;
 const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash-lite";
 const TUNE_INDEX_PAGE_SIZE = 10;
 
@@ -548,6 +548,7 @@ async function main() {
   let generated = 0;
   let updated = 0;
   let skipped = 0;
+  let failed = 0;
   const apiKey = process.env.GEMINI_API_KEY?.trim();
   const model = process.env.GEMINI_MODEL?.trim() || DEFAULT_GEMINI_MODEL;
   const pagesToBuild = [];
@@ -572,28 +573,32 @@ async function main() {
   }
 
   for (const { tune, outputFile, existingPage } of pagesToBuild) {
-    const overview = await generateTuneOverview(tune, apiKey, model);
-    if (existingPage) {
-      await writeFile(outputFile, addOverviewToExistingPage(existingPage, overview, tune.name), "utf8");
-      updated += 1;
-    } else {
-      try {
+    try {
+      const overview = await generateTuneOverview(tune, apiKey, model);
+      if (existingPage) {
+        await writeFile(outputFile, addOverviewToExistingPage(existingPage, overview, tune.name), "utf8");
+        updated += 1;
+      } else {
         await writeFile(outputFile, createTunePage(tune, overview), {
           encoding: "utf8",
           flag: "wx"
         });
         generated += 1;
-      } catch (error) {
-        if (error.code !== "EEXIST") throw error;
-        skipped += 1;
       }
+    } catch (error) {
+      if (error.code === "EEXIST") {
+        skipped += 1;
+        continue;
+      }
+      failed += 1;
+      console.error(`Unable to generate page for "${tune.name}": ${error.message}`);
     }
   }
 
   await updateSearchArtifacts(rows);
 
   console.log(
-    `Generated ${generated} page${generated === 1 ? "" : "s"}; added overviews to ${updated} existing page${updated === 1 ? "" : "s"}; skipped ${skipped} complete page${skipped === 1 ? "" : "s"}.`
+    `Generated ${generated} page${generated === 1 ? "" : "s"}; added overviews to ${updated} existing page${updated === 1 ? "" : "s"}; skipped ${skipped} complete page${skipped === 1 ? "" : "s"}; failed ${failed}.`
   );
 }
 
