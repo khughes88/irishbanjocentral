@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Ed&#39;s Big 5 0 in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, D major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/20928-ed-s-big-5-0.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Ed&#39;s Big 5 0 banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Ed&#39;s Big 5 0 in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, D major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/20928-ed-s-big-5-0.html">
+  <title>Ed&#39;s Big 5 0 Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Ed&#39;s Big 5 0</h1>
+    <p class="metadata">Reel · 4/4 · D major</p>
+    <p class="tune-overview">Ed&#39;s Big 5 0 is a modern reel in D major composed by celebrated Irish flute and whistle player Brian Finnegan. Written in 4/4 meter, the tune features an energetic and intricate contemporary style that showcases modern stylistic developments in traditional Irish music. It is frequently performed by musicians exploring advanced contemporary repertoire within the tradition.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Ed&#39;s Big 5 0 in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Ed's Big 5 0","abc":"X:1\nT:Ed's Big 5 0\nM:4/4\nK:D\n|:DAcd z ~d-AG|Gdfd eA d2|DAcd z ~d-AG|GdcA EDGF|\r\nDAcd z ~d-AG|Gdfd eA d2|Bdfd eAdA|1 (3Bcd cA-AEDA:|2 (3Bcd cA-AE D2||\r\nB2 dB fd (3BAG|A2 dA cdd z|G2 AG FDDF|EAcd dB-ed|\r\nB2 dB fd (3BAG|ADdD cdd z|a2 bg fAAd|cAef Bd d2|\r\nB2 dB fd (3BAG|A2 dA cdd z|G2 AG FDDF|EAcd dB-ed|\r\nDEED cAED-|DDcA ED z2|g2 gf z fed|edef ed d2||","settingId":"41683"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Daniel Kelly in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, C major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/9055-daniel-kelly.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Daniel Kelly banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Daniel Kelly in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, C major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/9055-daniel-kelly.html">
+  <title>Daniel Kelly Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Daniel Kelly</h1>
+    <p class="metadata">Reel · 4/4 · C major</p>
+    <p class="tune-overview">Daniel Kelly is a traditional Irish reel set in 4/4 time and composed in the key of C major. Because specific historical records and composer attributions for the tune are not established, its exact origins remain uncertain. Musically, it is characterized by an upbeat, driving rhythm and a bright melodic contour well-suited to standard instrumental session playing.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Daniel Kelly in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Daniel Kelly","abc":"X:1\nT:Daniel Kelly\nM:4/4\nK:C\n|:GAc2 c3A|c4 {cd}e4|d2de d2c2|d4 d2eg|\r\na2e2 c'2g2|a2ge g2ed|c2~c\u003eA c2{d}e2|E2G2 AGED|\r\nE2G2 AGED|C2C\u003eD C2C2|EGA2 cAG2|E2G2 cAGE|\r\nD2D\u003eE D2D2|e2{e}d2 cde2|{d}c2BA A2a2|g4 {b}c'2a2|\r\na2ab c'4|{a}g2e2 gedc|a2{a}g2 e2d2|cAc2 {d}c3 G|\r\nE2D2 C2A,2|c2C2 G2E2|c2E2 G2E2|{B}c2d2 e2d2|\r\nc2cd {d}c2AG|A4 c2de|g2g2 {a}g2eg|a4 g2c'd'|\r\ne'2d'c' d'2c'b|c'2ba bc'd'2|c2a2 ~a2g2|a4 ~b2ab|\r\nc2a2 ~g2e2|{e}d2c2 deg2|fc'g2 e2c2|A2{B}c2 {d}c4:|","settingId":"9055"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>
