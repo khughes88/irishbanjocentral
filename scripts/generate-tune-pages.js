@@ -10,9 +10,15 @@ const TUNE_INDEX_FILE = path.join(SITE_DIR, "tune-index.html");
 const TUNE_INDEX_DIR = path.join(SITE_DIR, "tune-index");
 const SITEMAP_FILE = path.join(SITE_DIR, "sitemap.xml");
 const SITE_URL = "https://irishbanjocentral.com";
-const DEFAULT_PAGE_LIMIT = 200;
+const GOOGLE_TAG = `  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>`;
+const DEFAULT_PAGE_LIMIT = 250;
 const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash-lite";
-const TUNE_INDEX_PAGE_SIZE = 250;
+const TUNE_INDEX_PAGE_SIZE = 10;
 
 function getPageLimit(args) {
   const limitIndex = args.findIndex((arg) => arg === "--limit" || arg.startsWith("--limit="));
@@ -139,6 +145,7 @@ function createTuneIndexPage(groups) {
   return `<!doctype html>
 <html lang="en">
 <head>
+${GOOGLE_TAG}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Browse ${total.toLocaleString()} Irish tenor banjo tunes with GDAE tablature in this alphabetical tune index.">
@@ -214,6 +221,7 @@ function createTuneLetterPage(group, tunes, groups, pageNumber, totalTunes) {
   return `<!doctype html>
 <html lang="en">
 <head>
+${GOOGLE_TAG}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Browse ${escapeHtml(pageDescription)} Irish tenor banjo tablature and standard notation.">
@@ -364,6 +372,7 @@ function createTunePage(tune, overview) {
   return `<!doctype html>
 <html lang="en">
 <head>
+${GOOGLE_TAG}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="${description}">

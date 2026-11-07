@@ -1,3 +1,5 @@
+const adsScriptUrl = new URL("../ads.js", document.currentScript.src);
+
 class SiteFooter extends HTMLElement {
   constructor() {
     super();
@@ -57,6 +59,18 @@ class SiteFooter extends HTMLElement {
           <p class="attribution">Contains information from <a href="https://github.com/adactio/TheSession-data">The Session</a>, made available under the <a href="https://opendatacommons.org/licenses/odbl/1-0/">Open Database License (ODbL)</a>.</p>
         </div>
       </footer>`;
+  }
+
+  connectedCallback() {
+    if (document.querySelector('script[data-site-ads]')) return;
+
+    const script = document.createElement("script");
+    script.src = adsScriptUrl.href;
+    script.dataset.siteAds = "";
+    script.addEventListener("error", () => {
+      console.error(`Unable to load ads script: ${script.src}`);
+    });
+    this.before(script);
   }
 }
 
