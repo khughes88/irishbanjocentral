@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Cape Clear in standard notation with Irish tenor banjo tablature in GDAE tuning. Mazurka, 3/4, D major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/9688-cape-clear.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Cape Clear banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Cape Clear in standard notation with Irish tenor banjo tablature in GDAE tuning. Mazurka, 3/4, D major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/9688-cape-clear.html">
+  <title>Cape Clear Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Cape Clear</h1>
+    <p class="metadata">Mazurka · 3/4 · D major</p>
+    <p class="tune-overview">Cape Clear is a traditional Irish mazurka set in the key of D major with a 3/4 meter. Because its specific composer and exact historical origins are not definitively recorded, it is best known through traditional performance practice rather than historical documentation. The tune is typically played with the distinctive lilt and accented second beat characteristic of traditional Irish mazurkas.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Cape Clear in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Cape Clear","abc":"X:1\nT:Cape Clear\nM:3/4\nK:D\nB2efJ{a}g2-|(3g{a}gf {ef}ed JB2-|B4z2|{c}(3BAF JG2 (3A{c}BA|GBJA3{c}A|.G/ zE/{A}E4-|\r\nE6|z3Bef|J{a}g4{a}gf|{a}edB2z2|Jb6-|b2z2Jb{c'}b|{c'}bag3a/g/|\r\n(3f/g/f/ e.gz2e/Jf/|f3 {a}f{a}f e|{a}e6-|e3z3|b2Jb2{c'}ba|\r\ng3-g2z|zg/a/.bJa3|{c'}ag{a}f3g|.azJg3{a}g|fe.ge{a}f2-|\r\nfg//f//g//f//e2{a}e2-|^d3JB3-|B4z2|{c}BAG3.G/.G/|A B/c/ dBe2-|\r\ne2{a}e^de{a}f-|f6|z2Jb2{c'}ba|Jg3{a}gfe|.gzeJf3-|f3/2g//f//g//f//g//f//e2{a}e-|e6-|e2z4|","settingId":"30958"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

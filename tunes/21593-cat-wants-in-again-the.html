@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Cat Wants In Again, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Slide, 12/8, A major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/21593-cat-wants-in-again-the.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Cat Wants In Again, The banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Cat Wants In Again, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Slide, 12/8, A major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/21593-cat-wants-in-again-the.html">
+  <title>Cat Wants In Again, The Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Cat Wants In Again, The</h1>
+    <p class="metadata">Slide · 12/8 · A major</p>
+    <p class="tune-overview">The traditional Irish slide &quot;The Cat Wants In Again&quot; is associated with the Sliabh Luachra musical tradition in the south of Ireland, though its exact composer and precise historical origins remain unrecorded. It is set in 12/8 meter and A major, featuring the characteristic bouncy, driving rhythm and buoyant phrasing typical of the slide genre. Due to the lack of early manuscript evidence or specific historical anecdotes, the tune is best defined by its lively regional style and enduring popularity among fiddle and accordion players.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Cat Wants In Again, The in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Cat Wants In Again, The","abc":"X:1\nT:Cat Wants In Again, The\nM:12/8\nK:A\n|:Ace f3 eae f3|eae fec B3 B2c|\r\nAce f3 eae f3|eae fec B2A A3:|\r\n|:e2A cBA e2A c2e|f2a ecA B3 Bcd|\r\ne2A cBA e2A c2e|1 f2a ecA A3 c2d:|2 f2a aga aga c2B||","settingId":"43175"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

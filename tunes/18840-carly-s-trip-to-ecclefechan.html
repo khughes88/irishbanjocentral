@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Carly&#39;s Trip To Ecclefechan in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, A minor.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/18840-carly-s-trip-to-ecclefechan.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Carly&#39;s Trip To Ecclefechan banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Carly&#39;s Trip To Ecclefechan in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, A minor.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/18840-carly-s-trip-to-ecclefechan.html">
+  <title>Carly&#39;s Trip To Ecclefechan Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Carly&#39;s Trip To Ecclefechan</h1>
+    <p class="metadata">Reel · 4/4 · A minor</p>
+    <p class="tune-overview">Carly&#39;s Trip To Ecclefechan is a modern reel composed by Norman Mackay in the traditional Scottish style. Written in A minor with a 4/4 meter, it features the lively rhythm and brisk tempo typical of dance tunes designed for the fiddle or accordion. While specific historical associations for the journey or title are not widely documented, the tune remains a popular choice within contemporary Scottish session repertoires.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Carly&#39;s Trip To Ecclefechan in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Carly's Trip To Ecclefechan","abc":"X:1\nT:Carly's Trip To Ecclefechan\nM:4/4\nK:Am\n|:\"Am\" Aaae gge\"Dm\"d-|dcAc ddcB|\"Am\"Aaae gge\"Dm\"d-|dcAc d3c|\r\n\"Am\"Aaae gge\"Dm\"d-|dcAc ddcB|\"Am\"Aaae gge\"Dm\"d-|dcAc d2cB||\r\n\"F\"cAAc \"G\"dBB\"Am\"c-|cBAe dcBA|\"F\"cAAc \"G\"dBB\"Am\"A-|\r\nAc (3BAG A3B|\"F\"cAAc \"G\"dBB\"Am\"c-|cBAe dcBA|\r\n\"F\"cAAc \"G\"dBB\"Dm\"A-|1 Ac (3BAG A2cB:|2 Ac (3BAG A4||","settingId":"36884"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

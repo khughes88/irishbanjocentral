@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Crying Mother, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, E dorian.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/20925-crying-mother-the.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Crying Mother, The banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Crying Mother, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, E dorian.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/20925-crying-mother-the.html">
+  <title>Crying Mother, The Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Crying Mother, The</h1>
+    <p class="metadata">Jig · 6/8 · E dorian</p>
+    <p class="tune-overview">The traditional jig known as The Crying Mother is an Irish dance tune of uncertain historical origin and no verified composer. Written in 6/8 meter and set in the E dorian mode, the melody features a characteristically melancholic yet rhythmic flow suited to traditional ensemble and solo playing. Due to the lack of early documentation, specific historical associations or dates of composition remain unestablished for this tune.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Crying Mother, The in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Crying Mother, The","abc":"X:1\nT:Crying Mother, The\nM:6/8\nK:Edor\nB|EDE GBG|AGF DFF|GEG Bdf|geB fdA|\r\nedc ddA|dBG AdF|EFG BGF|dAB BAB||\r\nEDE GBG|AGF DFF|GEG Bdf|geB fdA|\r\nedc dBA|GBG AdF|EFG BGF|DEE EDE||\r\nGGG BBB|ABd fed|beb e2 e|fef def|\r\nbbb eee|fef dBA|Bcd AGF|DEE EDE||\r\nGGG BBB|ABd fad|ggb eee|fef dfa|\r\ngeb ede|fef dBA|Bcd AGF|DEE FGA||\r\nBAB dcd|BAF DEF|GAB B2 F|DEE FGA|\r\nBBG BBD|FGA FAF|GAB BGF|EED EEG||\r\nBAB d2 d|BAF DEF|GAB BGF|DEE FGA|\r\nBBA BBD|FGA AAF|GAB BGF|EED EEE||","settingId":"41671"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Bushmills Fancy in standard notation with Irish tenor banjo tablature in GDAE tuning. Hornpipe, 4/4, E minor.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/10422-bushmills-fancy.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bushmills Fancy banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Bushmills Fancy in standard notation with Irish tenor banjo tablature in GDAE tuning. Hornpipe, 4/4, E minor.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/10422-bushmills-fancy.html">
+  <title>Bushmills Fancy Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Bushmills Fancy</h1>
+    <p class="metadata">Hornpipe · 4/4 · E minor</p>
+    <p class="tune-overview">Bushmills Fancy is an Irish hornpipe composed by Paddy Mills in the E minor key and set in 4/4 meter. The tune is played with the characteristic upbeat tempo and swung rhythm typical of traditional hornpipes, making it well-suited for solo fiddle or group sessions. While specific historical associations or detailed regional origins beyond its connection to the composer are not widely documented, it remains a lively and enduring addition to the traditional repertoire.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Bushmills Fancy in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Bushmills Fancy","abc":"X:1\nT:Bushmills Fancy\nM:4/4\nK:Em\nd\u003ec|:B\u003eGD\u003eB, C2B,\u003eC|D\u003eE (3FED G2 B\u003ec|d\u003eg (3ggg f\u003edc\u003eA|d\u003eBc\u003eA B\u003eGA\u003eF|\r\nG\u003eFD\u003eB, C2 B,\u003eC|D\u003eE (3FED G2 B\u003ec|d\u003eg (3ggg f\u003edc\u003eA|1 d\u003eBc\u003eA G2 d\u003ec:|2 d\u003eBA\u003eF G2 B\u003ec||\r\n|:d\u003ed g\u003ee d\u003eBG\u003eB|c\u003eBc\u003ee A\u003eGF\u003eE|D2 (3EFG d\u003eB (3cBA|d\u003eef\u003eg a\u003efdf|\r\ng\u003eg (3efg a\u003efd\u003ef|g\u003efg\u003ea f\u003edd\u003ec|A\u003eB (3cBA d\u003ecA\u003eF|1 G2G\u003eF G2 B\u003ec:|2 G2G\u003eF G2 z2||","settingId":"10422"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>
