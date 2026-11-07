@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Jig For The One Row in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, C major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/22334-jig-for-the-one-row.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Jig For The One Row banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Jig For The One Row in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, C major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/22334-jig-for-the-one-row.html">
+  <title>Jig For The One Row Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Jig For The One Row</h1>
+    <p class="metadata">Jig · 6/8 · C major</p>
+    <p class="tune-overview">Jig For The One Row is a contemporary jig composed by the accordionist Josephine Marsh, written in 6/8 meter and the key of C major. The tune has a lively and rhythmic character that reflects the traditional Irish style associated with the one-row accordion. Because it is a modern composition by a known artist, it does not carry historical associations from earlier traditional repertoires.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Jig For The One Row in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Jig For The One Row","abc":"X:1\nT:Jig For The One Row\nM:6/8\nK:C\n|:c3-cde|dcA c2A|G2c cde|g3 geg|\r\na3 ged|ege dcA|GAB ced|1 ecc cAB:|2 ecc c2d||\r\n|:ecc gcc|ac'a gec|ceg ac'a|g2e d2f|\r\necc gcc|ac'a gec|ceg ac'a|1 gec c2d:|2 gec cBA||\r\n|:GAG C2E|GAB cBA|G3 E2G|AFD D3|\r\nGAG C2E|GAB cBA|GAB ced|1 ecc cBA:|2 ecc c2d||\r\n|:e3 dcA|GAB c2d|egg geg|afd d2f|\r\ne3 dcA|GAB cBA|G3 g2 f|1 ecc c2d:|2 ecc cBA||","settingId":"45023"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Honesty Bar, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, D major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/7767-honesty-bar-the.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Honesty Bar, The banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Honesty Bar, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, D major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/7767-honesty-bar-the.html">
+  <title>Honesty Bar, The Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Honesty Bar, The</h1>
+    <p class="metadata">Jig · 6/8 · D major</p>
+    <p class="tune-overview">The jig known as The Honesty Bar is a modern composition in D major written by renowned flute and whistle player Michael McGoldrick. Composed in a lively 6/8 meter, the tune features the intricate melodic ornamentation and driving rhythmic pulse characteristic of contemporary Irish traditional music. It has since been adopted into the repertoire of various contemporary trad and folk musicians, though detailed historical associations beyond its composition are scarce.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Honesty Bar, The in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Honesty Bar, The","abc":"X:1\nT:Honesty Bar, The\nM:6/8\nK:D\ndfe dAF|FEF DFA|dfe dAF|EFA ~B3|\r\ndfe dAF|FEF DFA|Bcd BAF|AFE E2A|\r\ndfe dAF|BAF EFA|dfe dAF|EFA ~B3|\r\ndef a2 a|afe edB|dfe dAF|EDB, D3||\r\nM:9/8\r\n~B3 dAF EFA|~B3 dAF EFD|~B3 dAF EFA|~B3 dAF E2 z|\r\n~B3 dAF EFA|~B3 dAF EFD|~B3 dAF EFA|~B3 dBd efe||\r\nd2 f ~a3 edB|d2 f a2 f efe|d2 f ~a3 edB|d2 f edB DFA|\r\nd2 f ~a3 edB|d2 f a2 f efe|def edB AFE|DEF DEF ABc||","settingId":"7767"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

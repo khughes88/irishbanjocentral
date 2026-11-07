@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Hat Lover&#39;s, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Waltz, 3/4, G minor.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/14057-hat-lover-s-the.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Hat Lover&#39;s, The banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Hat Lover&#39;s, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Waltz, 3/4, G minor.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/14057-hat-lover-s-the.html">
+  <title>Hat Lover&#39;s, The Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Hat Lover&#39;s, The</h1>
+    <p class="metadata">Waltz · 3/4 · G minor</p>
+    <p class="tune-overview">The Hat Lover&#39;s is a traditional waltz in three-four meter and G minor, with its exact geographic origin and composer remaining unrecorded. The tune features a graceful, flowing rhythm characteristic of traditional dance music, making it well suited for expressive fiddle or accordion performance. Because specific historical associations are not documented for this melody, its character is best appreciated through its lyrical phrasing and minor-key charm.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Hat Lover&#39;s, The in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Hat Lover's, The","abc":"X:1\nT:Hat Lover's, The\nM:3/4\nK:Gm\n|:\"Gm\"G2GAB2|\"Eb\"G2GABc|\"Gm\"ded2 \"Dm\"Ac|\"Gm\"(3BcBA2G2|\"Eb\"G2GABG|\"Bb\"F2 Bcd2|d2 \"Cm\"e2\"Bb\"d2|\"F\"c4 (3ABc|\r\n\"Bb\"d2dcB2|f2fdcB|\"Dm\"ded2 Ac|\"Gm\"(3BcB A2G2|\"Bb\"F2 B2BG|\"F\"A2 ABc2|\"Gm\"B2c2 \"Dm\"A2|1 \"Gm\"G4 D2:|2 \"Gm\"G4 (3Bdg||\r\n\"Gm\"b2bag2|d2 g3d|(3BcB A2G2|\"Dm\"D4 D2|\"Eb\"E2EFG2|\"F\"B2A3G|\"Gm\"B2A2G2|\"Cm\"C6|\r\n\"Gm\"b2bagf|\"Dm\"a2{b}agfd|\"Eb\"g2{a}gfe2|\"Bb\"f4BA|\"Gm\"G2GAB2|\"F\"ABcfa2|\"Bb\"b4\"Dm\"a2|\"Gm\"g4 D2||","settingId":"25527"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

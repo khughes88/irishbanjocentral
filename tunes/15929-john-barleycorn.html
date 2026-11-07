@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View John Barleycorn in standard notation with Irish tenor banjo tablature in GDAE tuning. March, 4/4, E minor.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/15929-john-barleycorn.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="John Barleycorn banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View John Barleycorn in standard notation with Irish tenor banjo tablature in GDAE tuning. March, 4/4, E minor.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/15929-john-barleycorn.html">
+  <title>John Barleycorn Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>John Barleycorn</h1>
+    <p class="metadata">March · 4/4 · E minor</p>
+    <p class="tune-overview">John Barleycorn is a traditional English folk song and tune whose precise historical origins and original composition remain uncertain. Played in a 4/4 meter and set in E minor, it typically functions as a steady march with a rustic, defiant character suited to community singing and traditional instrumental performance. The tune shares its name and thematic roots with an ancient personification of barley and brewing, though specific early historical associations beyond this folkloric tradition are not definitively documented.</p>
+    <div class="music" id="tune-music" role="img" aria-label="John Barleycorn in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"John Barleycorn","abc":"X:1\nT:John Barleycorn\nM:4/4\nK:Em\nB2|\"Am\"A2 AG \"Em\"E2 EF|\"C\"G2 \"D\"GA \"Em\"B3 G|\"Am\"A2 AG \"C\"E3 \"D\"D|\"Em\"E6 BG|\r\n\"Am\" A2 AG \"Em\"E2 EF|\"C\"G2 \"D\"GA \"Em\"B2 AG|\"A\"A2 AG \"C\"E3 \"D\"D|\"Em\"E6 EF|\r\n\"G\"G2 GA Bc d2|\"Em\"e2 e2 e2 Bc|\"G\"d3 d \"A\"ed ^c2|\"B\"B6 B2|\r\n\"Am\"A2 AG \"Em\"E2 EF|\"C\"G2 \"D\"GA \"Em\"B2 AG|\"Am\"A2 AG \"C\"E3 \"D\"D|\"Em\"E6|","settingId":"53559"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>
