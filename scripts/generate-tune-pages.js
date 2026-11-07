@@ -16,7 +16,7 @@ const GOOGLE_TAG = `  <script async src="https://www.googletagmanager.com/gtm.js
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   </script>`;
-const DEFAULT_PAGE_LIMIT = 7000;
+const DEFAULT_PAGE_LIMIT = 9000;
 const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash-lite";
 const TUNE_INDEX_PAGE_SIZE = 10;
 
@@ -558,6 +558,7 @@ async function main() {
     const existingPage = await readExistingPage(outputFile);
     if (existingPage?.includes('class="tune-overview"')) {
       skipped += 1;
+      console.log(`Skipping "${tune.name}" (page is already complete).`);
     } else {
       pagesToBuild.push({ tune, outputFile, existingPage });
     }
@@ -573,6 +574,7 @@ async function main() {
   }
 
   for (const { tune, outputFile, existingPage } of pagesToBuild) {
+    console.log(`Processing "${tune.name}"...`);
     try {
       const overview = await generateTuneOverview(tune, apiKey, model);
       if (existingPage) {

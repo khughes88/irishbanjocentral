@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Foggy Banks Of Haines, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Mazurka, 3/4, G minor.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/24458-foggy-banks-of-haines-the.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Foggy Banks Of Haines, The banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Foggy Banks Of Haines, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Mazurka, 3/4, G minor.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/24458-foggy-banks-of-haines-the.html">
+  <title>Foggy Banks Of Haines, The Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Foggy Banks Of Haines, The</h1>
+    <p class="metadata">Mazurka · 3/4 · G minor</p>
+    <p class="tune-overview">The traditional mazurka known as The Foggy Banks Of Haines is set in 3/4 meter and the key of G minor, with no composer historically attributed to it. Because its precise geographic origin and historical associations remain undocumented, the tune is best appreciated through its characteristic triple-meter lilt and mournful modal melody. It is typically played with a graceful yet subdued rhythm that highlights the expressive, dance-oriented phrasing common to traditional folk mazurkas.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Foggy Banks Of Haines, The in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Foggy Banks Of Haines, The","abc":"X:1\nT:Foggy Banks Of Haines, The\nM:3/4\nK:Gm\nD GA|:BA GA BG|A2^F2D2|ED CD EG|D3G G^F|\r\nGA Bc d2|g2d2c2|BA GB A^F|G3D GA:|\r\nK:G\r\n|:B2BA (3Bcd|g2B2B2|(3cBA FADF|GA Bc BA|\r\nB2BA (3Bcd|g2B2B2|(3cBA FADF|1 G2D2GA:|2 G4D2||\r\nK:Gmin\r\n=B,D GA =Bc|=BA G2D2|B,D GA Bc|BA G2D2|\r\nA,C FA dc|BA GA Bc|d2=e2^c2|d4d2|\r\nb3d dc|Bc d2 B2|f2cB AG|FG AB BA|\r\nBA GA BG|A2^F2D2|GG G^F GA|G3||","settingId":"50949"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>
