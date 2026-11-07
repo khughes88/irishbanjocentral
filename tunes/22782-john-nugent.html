@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View John Nugent in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, D minor.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/22782-john-nugent.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="John Nugent banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View John Nugent in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, D minor.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/22782-john-nugent.html">
+  <title>John Nugent Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>John Nugent</h1>
+    <p class="metadata">Jig · 6/8 · D minor</p>
+    <p class="tune-overview">John Nugent is an Irish jig composed in the key of D minor by the blind harper Turlough O&#39;Carolan during the early eighteenth century. Written in 6/8 meter, the tune features the characteristic lyrical and flowing melodic style typical of O&#39;Carolan&#39;s extensive catalog of compositions. While the precise historical circumstances surrounding its dedication remain uncertain, the piece has endured as a popular and celebrated item in the traditional Irish repertoire.</p>
+    <div class="music" id="tune-music" role="img" aria-label="John Nugent in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"John Nugent","abc":"X:1\nT:John Nugent\nM:6/8\nK:Dm\nV: 1\r\nd2e f2g|Tf2d cAF|Ggg Tgfg|a3 d3|\r\nfga dfd|fga AcA|G2G TFGF|c3 A3||\r\nd2e fed|fga A2A|f2g a2b|c'3 b2a|\r\ngdg gdg|a2a A2A|cdc AFA|f3 d3||\r\ncAF cAF|=Bcd cAc|d2d efg|e3 c3|\r\n(c/e/f)d (e/f/g)e|(d/e/f)d cAc|AFA AFA|f3 d3||\r\n% - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\r\nV: 2 clef=bass middle=d\r\nd2^c d2e|f2g a3|b3 g3|d'3 d3|\r\nd'3 b3|a3 f3|b2g c'2c|f3 F3||\r\nd3 d3|d3 fga|d2e f2d|e2f g2a|\r\nb2b B2B|fcf fcf|e3 a3|d3 D3||\r\nf3 f3|f3 e3|f2d g2G|c'3 c3|\r\nb3 c'3|b3 a2f|a3 A3|d3 D3||","settingId":"48926"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

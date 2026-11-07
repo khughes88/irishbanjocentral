@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Lone Shanakyle in standard notation with Irish tenor banjo tablature in GDAE tuning. Waltz, 3/4, C major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/21776-lone-shanakyle.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Lone Shanakyle banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Lone Shanakyle in standard notation with Irish tenor banjo tablature in GDAE tuning. Waltz, 3/4, C major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/21776-lone-shanakyle.html">
+  <title>Lone Shanakyle Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Lone Shanakyle</h1>
+    <p class="metadata">Waltz · 3/4 · C major</p>
+    <p class="tune-overview">Lone Shanakyle is a traditional Irish waltz set in three-quarter time and structured in the key of C major. Because its exact geographic origin and specific historical background are not historically documented, the tune is best defined by its melodic charm and flowing character. It is typically played with a smooth, graceful phrasing that suits the gentle, rhythmic sway characteristic of traditional social dance waltzes.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Lone Shanakyle in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Lone Shanakyle","abc":"X:1\nT:Lone Shanakyle\nM:3/4\nK:C\n(EF)|:\"C\" G2c2d2|\"Am\" c4 cd|\"F\" e2f2e2|\"G\" d6|z2z2 (ed)|\"F\" c2G2F2|\r\n\"G\" FE3F2|\"F\" G2c2(Bc)|\"G/B\" G6|z2 z2 G2|\"C\" G2c2(cd)|\"Am\" c4 cd|\"F\" e2f2e2|\r\n\"G\" d6|z2 e2(de)|\"F\" c2G2F2|\"G\" (FD2)DG2|\"C\" C2 C4-|C6|\"C\" E2F2G2|\"F\" B2G2F2-|F6|\r\n\"C\" F2c2c2|\"F\" c2G2F2-|F2G3F|\"C\" E2C4|\"F\" c2G2F2|\"G\" G2c2(dc-|\"Am\" c2B2)c2-|c6|\r\n\"C\" E2F2G2|\"F\" B2G2F2-|F6|\"C\" G2c2d2|\"Am\" e2f2(ef)|\"G\" d6|e4d2|\r\n\"F\" c2G2F2|\"G\"F2D2G2-|G6|1 \"C\" C2C4-|C4 (EF):|2 \"C\" C2C4-|C12||","settingId":"43622"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

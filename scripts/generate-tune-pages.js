@@ -6,6 +6,7 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const SITE_DIR = path.resolve(SCRIPT_DIR, "..");
 const DATA_FILE = path.join(SITE_DIR, "tunes.json");
 const OUTPUT_DIR = path.join(SITE_DIR, "tunes");
+const HOME_PAGE_FILE = path.join(SITE_DIR, "index.html");
 const TUNE_INDEX_FILE = path.join(SITE_DIR, "tune-index.html");
 const TUNE_INDEX_DIR = path.join(SITE_DIR, "tune-index");
 const SITEMAP_FILE = path.join(SITE_DIR, "sitemap.xml");
@@ -16,7 +17,7 @@ const GOOGLE_TAG = `  <script async src="https://www.googletagmanager.com/gtm.js
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   </script>`;
-const DEFAULT_PAGE_LIMIT = 11000;
+const DEFAULT_PAGE_LIMIT = 13000;
 const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash-lite";
 const TUNE_INDEX_PAGE_SIZE = 10;
 
@@ -483,6 +484,17 @@ async function updateSearchArtifacts(rows) {
   const existingFiles = new Set(await readdir(OUTPUT_DIR));
   const availableTunes = uniqueTunesInSourceOrder(rows)
     .filter((tune) => existingFiles.has(`${slugify(String(tune.tune_id))}-${slugify(tune.name)}.html`));
+  const homepage = await readFile(HOME_PAGE_FILE, "utf8");
+  const countMarker = /(<span data-published-tune-count>)[^<]*(<\/span>)/g;
+  const countMarkers = [...homepage.matchAll(countMarker)];
+  if (countMarkers.length !== 1) {
+    throw new Error("The homepage must contain exactly one published tune count.");
+  }
+  await writeFile(
+    HOME_PAGE_FILE,
+    homepage.replace(countMarker, `$1${availableTunes.length.toLocaleString("en-US")}$2`),
+    "utf8"
+  );
   const tuneGroups = groupTunesAlphabetically(availableTunes);
   await mkdir(TUNE_INDEX_DIR, { recursive: true });
   await writeFile(TUNE_INDEX_FILE, createTuneIndexPage(tuneGroups), "utf8");

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Liza&#39;s Dream in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, D major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/24250-liza-s-dream.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Liza&#39;s Dream banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Liza&#39;s Dream in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, D major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/24250-liza-s-dream.html">
+  <title>Liza&#39;s Dream Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Liza&#39;s Dream</h1>
+    <p class="metadata">Reel · 4/4 · D major</p>
+    <p class="tune-overview">Liza&#39;s Dream is a modern reel composed in D major by pianist and fiddler Donna Long. Written in 4/4 meter, the tune features an energetic and flowing rhythmic drive characteristic of contemporary Irish-American traditional music. It is frequently performed in session settings as an engaging and melodic addition to standard reel sets.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Liza&#39;s Dream in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Liza's Dream","abc":"X:1\nT:Liza's Dream\nM:4/4\nK:D\n|:DB,|A,B,DF E2 FD|A,B,DF E/F/E DB,|A,B,DF EDEF|AFEF DE:|\r\nFA|B2 Bd cBBF|B2 B/c/d cAAc|BFBd A B3|AFEF DEFA|\r\nB2 Bd cBBF|B2 B/c/d cAA2|BAGB A2 FA|BAGF EFGB|\r\nAFAF D3 D|B,A,B,D E2 (3EFG|A2 AB AFDB,|A,B,DE D2 D(B,-|\r\n-B,) AD2 BAFE|DEFD E/F/E DF|G3 B AFDB,|A,B,DF E2||\r\n|:dB|ABdf e2 fd|ABdf e/f/e dB|ABdf edef|afef de:|\r\nfa|b2 bd' c'bbf|b2 b/c'/d' c'aac'|bfbd' a b3|afef defa|\r\nb2 (3bc'd' c'aac'|bggb a2 fa|bagb agfa|bagf efgb|\r\na2 af d3 d|BABd e2 e/f/g|a2 ab afdB|ABde d2 d(B-|\r\n-B) ad2 bafe |defd e/f/e df|g3 b afdB|ABdf e3 d||\r\ndBAF E2 FD|A,B,DF E/F/E DB,|A,B,DF EDEF|AFEF DEDB,|\r\nA,B,DF E2 FD|A,B,DF E/F/E D(B,-|-B,) EE2 E4|CC2 C3 A||","settingId":"50297"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

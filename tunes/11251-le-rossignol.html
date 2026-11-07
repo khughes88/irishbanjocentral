@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Le Rossignol in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, G major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/11251-le-rossignol.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Le Rossignol banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Le Rossignol in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, G major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/11251-le-rossignol.html">
+  <title>Le Rossignol Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Le Rossignol</h1>
+    <p class="metadata">Reel · 4/4 · G major</p>
+    <p class="tune-overview">Le Rossignol is a traditional tune of uncertain precise origin that is widely played in various folk traditions. It is structured as a lively reel in four-four time with a bright character in G major. The tune is typically performed with a steady, rhythmic drive suited for dancing, though specific historical associations are not definitively established.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Le Rossignol in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Le Rossignol","abc":"X:1\nT:Le Rossignol\nM:4/4\nK:G\n|:dc|Bdgd bdgd|egde cAGE|D2F/E/D ADFD|FGAB ce e/d/c|\r\nBdgd bdgd|egde cAGE|D2F/E/D ADFD|GBAF G2:|\r\n|:zG|FGAB cBcA|GABd ed^cB|^ceag fedc|edd^c d2ef|\r\ng/a/g f/g/f e/f/e d/e/d|c/d/c B/c/B A/B/A G/A/G|F/G/F E/F/E D/E/D C/D/C|B,/C/B, A,/B,/A, G,2AG|\r\nFGAB cBcA|GABd ed^cB|^ceag fedc|edd^c d2zf|\r\ngafg efde|cdBc ABGA|FGEF DECD|B,CA,B, G,2:|\r\n|:ze|dBGB dgbd'|d'c'bc' a3b|c'bc'a fdfa|gbag fedB|\r\ndBGB dgbd'|d'c'bc' a3b|c'bc'a fdfa|gbaf g2:|","settingId":"11251"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

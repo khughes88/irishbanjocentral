@@ -258,18 +258,21 @@ class SiteHeader extends HTMLElement {
     try {
       const tunes = await this.loadTuneIndex();
       const normalizedQuery = this.normalize(currentQuery);
-      const matches = tunes.filter((tune) =>
-        this.normalize(tune.name).includes(normalizedQuery)
-      );
+      const matches = tunes
+        .map((tune) => ({ tune, names: this.searchNameVariants(tune.name) }))
+        .filter(({ names }) => names.some((name) => name.includes(normalizedQuery)));
       matches.sort((a, b) => {
-        const nameA = this.normalize(a.name);
-        const nameB = this.normalize(b.name);
-        return Number(nameB.includes(normalizedQuery)) - Number(nameA.includes(normalizedQuery))
+        const bestMatch = (names) => Math.min(
+          ...names.map((name) => name.indexOf(normalizedQuery)).filter((index) => index >= 0)
+        );
+        const nameA = this.normalize(a.tune.name);
+        const nameB = this.normalize(b.tune.name);
+        return bestMatch(a.names) - bestMatch(b.names)
           || nameA.length - nameB.length
           || nameA.localeCompare(nameB);
       });
       if (input.value.trim() !== currentQuery) return;
-      this.renderSuggestions(matches.slice(0, 10), container, input, matches.length);
+      this.renderSuggestions(matches.slice(0, 10).map(({ tune }) => tune), container, input, matches.length);
     } catch (error) {
       console.error("Unable to load tune suggestions.", error);
       container.replaceChildren();
@@ -330,8 +333,17 @@ class SiteHeader extends HTMLElement {
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLocaleLowerCase()
+      .replace(/['’‘ʼ]/g, "")
       .replace(/[^\p{L}\p{N}]+/gu, " ")
       .trim();
+  }
+
+  searchNameVariants(value) {
+    const name = this.normalize(value);
+    const variants = [name];
+    const trailingArticle = /^(.*)\s+(the|a|an)$/.exec(name);
+    if (trailingArticle) variants.push(`${trailingArticle[2]} ${trailingArticle[1]}`);
+    return variants;
   }
 
   renderSuggestions(tunes, container, input, total = tunes.length) {

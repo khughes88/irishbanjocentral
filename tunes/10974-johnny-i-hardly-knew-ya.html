@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Johnny I Hardly Knew Ya in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, E minor.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/10974-johnny-i-hardly-knew-ya.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Johnny I Hardly Knew Ya banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Johnny I Hardly Knew Ya in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, E minor.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/10974-johnny-i-hardly-knew-ya.html">
+  <title>Johnny I Hardly Knew Ya Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Johnny I Hardly Knew Ya</h1>
+    <p class="metadata">Jig · 6/8 · E minor</p>
+    <p class="tune-overview">Johnny I Hardly Knew Ya is a traditional Irish anti-war song and tune of uncertain early origin, though it gained widespread popularity in the nineteenth century. Set in 6/8 meter as a lively jig in E minor, it pairs an upbeat, driving tempo with dark and mournful lyrical themes. The tune is best known musically for its infectious rhythmic bounce, which contrasts sharply with its famous tragic narrative of a soldier returning home maimed from war.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Johnny I Hardly Knew Ya in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Johnny I Hardly Knew Ya","abc":"X:1\nT:Johnny I Hardly Knew Ya\nM:6/8\nK:Em\nB,|:\"Em\"B,EEE2F|G2FG2E|\r\nw:While Go-in' the road to sweet Ath-y, hur\r\n\"G\"D3-D2B,|D3-D2B,|\"Em\"B,EEE2F|\r\nw:roo,_ hu roo_While go-in' the roads to\r\nG2FG2A|\"G\" B3-B2G|\"B\"B3z(GA)|\r\nw:sweet Ath-y, hur-roo_ hur-roo while\r\n\"Em\"BBB (BA)G|\"D\"A2AA2F|\r\nw:go-in' the road- -to sweet Ath-y, a\r\n\"Em\" GGG GFE|\"B\"FFF (FG)A|\r\nw:stick in me hand and a drop in me eye,_ a\r\n\"Em\"B2B\"D\"A2A|\"C\"G2G\"B\"F3|\"Em\"B,EE \"Am\"E2D|\r\nw:dole-ful dam-sel I heard cry: John-ny I Hard-ly\r\n[1-5\"Em\"E3E2z|\"Am\"Z|\"Em\" z3zB,B,:|[6\"Em\"E3E3||\r\nw:knew ye.~~ with your knew ye","settingId":"49462"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>
