@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Mr A G Wilken&#39;s Favourite in standard notation with Irish tenor banjo tablature in GDAE tuning. Strathspey, 4/4, F major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/12411-mr-a-g-wilken-s-favourite.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Mr A G Wilken&#39;s Favourite banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Mr A G Wilken&#39;s Favourite in standard notation with Irish tenor banjo tablature in GDAE tuning. Strathspey, 4/4, F major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/12411-mr-a-g-wilken-s-favourite.html">
+  <title>Mr A G Wilken&#39;s Favourite Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Mr A G Wilken&#39;s Favourite</h1>
+    <p class="metadata">Strathspey · 4/4 · F major</p>
+    <p class="tune-overview">Mr A G Wilken&#39;s Favourite is a traditional Scottish strathspey set in four-four meter and the key of F major. Because its precise composer and historical origins are not documented in standard historical records, the tune relies entirely on its musical characteristics for its enduring appeal. It is typically performed with the bouncy, dotted rhythms and energetic driving style that are characteristic of traditional strathspeys.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Mr A G Wilken&#39;s Favourite in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Mr A G Wilken's Favourite","abc":"X:1\nT:Mr A G Wilken's Favourite\nM:4/4\nK:F\n{/A} d|c\u003cA A\u003eG F\u003eG A\u003cF|{/D} B\u003cd d\u003ec{/B} d2 d/{/e}f3/2|c\u003cA A\u003eG F\u003eG A\u003cF|D\u003cG G\u003eF{/E} G2 G\u003cd|\r\nc\u003cA A\u003eG F\u003eG A\u003cF|{/D} B\u003cd d\u003ec{/B} d2 d/{/e}f3/2|(3cde (3fed c\u003cA F3/2{/E}D/|C\u003cuA A\u003eG F2- F||\r\nc|f\u003eg a\u003ef e\u003ef g\u003ee|d\u003ee f\u003ed A2- A\u003eA|{/D} B\u003cd d\u003eB (3Ac{e}f (3cAF|D\u003cG G\u003eF{/E} G2 G\u003cC|\r\nF\u003eG A\u003eF E\u003e(F G\u003e)E|D\u003eE F\u003cC A,3 C|(3FGA (3Bcd c\u003cA F3/2{/E}D/|C\u003cA A\u003eG F2- F||","settingId":"20687"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

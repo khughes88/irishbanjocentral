@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Marga&#39;s Moment in standard notation with Irish tenor banjo tablature in GDAE tuning. Slip jig, 9/8, D major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/8007-marga-s-moment.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Marga&#39;s Moment banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Marga&#39;s Moment in standard notation with Irish tenor banjo tablature in GDAE tuning. Slip jig, 9/8, D major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/8007-marga-s-moment.html">
+  <title>Marga&#39;s Moment Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Marga&#39;s Moment</h1>
+    <p class="metadata">Slip jig · 9/8 · D major</p>
+    <p class="tune-overview">Marga&#39;s Moment is a contemporary slip jig in D major composed by celebrated Irish flute and whistle player Brian Finnegan. Written in 9/8 meter, the tune features an intricate, driving rhythm and a lyrical, modern melodic character that showcases contemporary Celtic instrumental styles. While it lacks specific historical associations due to its modern origin, it has become a recognized addition to the contemporary traditional repertoire.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Marga&#39;s Moment in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Marga's Moment","abc":"X:1\nT:Marga's Moment\nM:9/8\nK:D\nM:7/8\r\nd2BA dcA|G2D2 GDG|A2D2 ADA|AEcE AA/B/c|\r\nd2BA dcA|G2D2 GDG|1 A2D2 ABc|e2c2 c2e:|2 A2D2 AGF|G2GF E2D||\r\nB2d2 fed|G2Bd a2a|aggf efa|g2f2 edc|\r\n~B3d fed|G2Bd a2b|aggf efa|gAfA edc:|","settingId":"8007"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

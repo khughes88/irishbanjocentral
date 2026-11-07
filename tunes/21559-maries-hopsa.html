@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Maries Hopsa in standard notation with Irish tenor banjo tablature in GDAE tuning. Polka, 2/4, G major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/21559-maries-hopsa.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Maries Hopsa banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Maries Hopsa in standard notation with Irish tenor banjo tablature in GDAE tuning. Polka, 2/4, G major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/21559-maries-hopsa.html">
+  <title>Maries Hopsa Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Maries Hopsa</h1>
+    <p class="metadata">Polka · 2/4 · G major</p>
+    <p class="tune-overview">Maries Hopsa is a traditional Scandinavian dance tune in two-four meter and the key of G major. Played as a lively polka, its rhythm is bright and bouncy with a cheerful, rustic character suited for social dancing. Because specific historical associations and composer details for this traditional melody are not definitively established, musicians focus on its upbeat tempo and rhythmic drive when performing it today.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Maries Hopsa in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Maries Hopsa","abc":"X:1\nT:Maries Hopsa\nM:2/4\nK:G\n|:B2 Bd|c2 ce|d2 db|g2 ag|f2 AB|c2 fe|dB GA|Bd cA|\r\nB2 Bd|c2 ce|d2 db|g2 ag|f2 AB|cd ef|gg/g/ gg|1 g2 dc:|2 g2 ^g2|\r\nK:D\r\n|:a2 (3 a^ga|f2 (3 fef|d2 (3 dcd|A3 d|ce Ac|eA ce|gb ag|f2 ^g2|\r\na2 (3 a^ga|f2 (3 fef|d2 (3 dcd|A3 d|ce Ac|eA Bd|dd/d/ dd|1 d2 f2:|d2 =c2|\r\nK:G\r\n|:B3 c|BD GB|d3 e|dB dg|b2 g2|d2 B2|dc Bc|A3 B|\r\nA3 B|AD FA|c3 d|cA cf|a2 g2|f2 e2|ed ^cd|B2 A2|\r\nB3 c|BD GB|d3 e|dB dg|b2 g2|d2 B2|dc Bc|a3 b|\r\nc'3 b|ag fe|dg Be|d2 B\u003eG|FG AB|cd ef|gg/g/ gg|1 g2 A2:|2 g2 z2||","settingId":"43096"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

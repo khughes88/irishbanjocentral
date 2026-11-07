@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Mr Keys in standard notation with Irish tenor banjo tablature in GDAE tuning. Three-two, 3/2, A mixolydian.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/12221-mr-keys.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Mr Keys banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Mr Keys in standard notation with Irish tenor banjo tablature in GDAE tuning. Three-two, 3/2, A mixolydian.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/12221-mr-keys.html">
+  <title>Mr Keys Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Mr Keys</h1>
+    <p class="metadata">Three-two · 3/2 · A mixolydian</p>
+    <p class="tune-overview">Mr Keys is a traditional three-two set in A mixolydian with a meter of 3/2. Because specific historical records, exact origins, and composer attributions for the tune are not established, its precise background remains uncertain. Musically, it features the characteristic driving rhythm and lively modal character typical of traditional three-twos played for regional dancing.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Mr Keys in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Mr Keys","abc":"X:1\nT:Mr Keys\nM:3/2\nK:Amix\n|:c2A2 B2AG A4|c2A4 c2B2d2|c2A2 B2AG A4|D2A4 c2B2d2:|\r\n|:c2 e2 de fd e4|c2 A4 c2 B2 d2|c2 e2 de fd e4|B2 G4 c2 B2 d2:|\r\n|:AB cA B2 AG A4|E2 A4 c2 B2 d2|AB cA B2 AG A4|D2 G4 c2 B2 d2:|\r\n|:cd ec de fd ef ge|a2 A4 c2 B2 d2|cd ec de fd ef ge|B2 G4 c2 B2 d2:|\r\n|:a2 fe ga b2 a4|c2 A4 c2 B2 d2|a2 gf ga b2 a4|g2 g4 G2 B2 d2:|\r\n|:cA cA GEGE AF AF|d2 A4 c2 B2 d2|cA cA GE GE AF AF|D2 G4 c2 B2 d2:|\r\n|:A,2 A2 GA BG A2 A,2|A,2 A2 A,B, CA, B,2 G,2|A,2 A2 GA BG D2 F2|GE GE GE GE A,2 G,2:|\r\n|:A2 E2 A,2 A2 C2 A,2|A2 E2 A,B, CA, B,2 A,G,|A2 E2 A,2 A2 C2 B,A,|G2 E4 c2 Bc dB:|","settingId":"12221"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>
