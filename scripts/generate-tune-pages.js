@@ -340,8 +340,8 @@ async function generateTuneOverview(tune, apiKey, model = DEFAULT_GEMINI_MODEL) 
     throw new Error(`Gemini could not generate an overview for "${tune.name}": ${reason}`);
   }
   const count = sentenceCount(text);
-  if (count > 4) {
-    throw new Error(`Gemini returned ${count} sentences for "${tune.name}"; expected no more than 4.`);
+  if (count > 5) {
+    throw new Error(`Gemini returned ${count} sentences for "${tune.name}"; expected no more than 5.`);
   }
   return text;
 }
