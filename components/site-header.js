@@ -253,6 +253,11 @@ class SiteHeader extends HTMLElement {
           outline-offset: 2px;
         }
 
+        .tune-overview {
+          width: 100%;
+          max-width: none;
+        }
+
         @media print {
           @page { margin: 12mm; }
           body { background: #fff !important; color: #000 !important; }
