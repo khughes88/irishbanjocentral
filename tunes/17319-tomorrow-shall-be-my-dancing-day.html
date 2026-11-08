@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Tomorrow Shall Be My Dancing Day in standard notation with Irish tenor banjo tablature in GDAE tuning. Waltz, 3/4, D major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/17319-tomorrow-shall-be-my-dancing-day.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Tomorrow Shall Be My Dancing Day banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Tomorrow Shall Be My Dancing Day in standard notation with Irish tenor banjo tablature in GDAE tuning. Waltz, 3/4, D major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/17319-tomorrow-shall-be-my-dancing-day.html">
+  <title>Tomorrow Shall Be My Dancing Day Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Tomorrow Shall Be My Dancing Day</h1>
+    <p class="metadata">Waltz · 3/4 · D major</p>
+    <p class="tune-overview">Tomorrow Shall Be My Dancing Day is a traditional English Christmas carol set in a 3/4 meter and D major key, though its exact origins and traditional background remain uncertain. Because historical details regarding its inception are sparse, the tune is best defined by its lilting waltz rhythm and gracefully flowing character. In modern folk and choral settings, it is typically played or sung with a gentle, rhythmic warmth that highlights its festive and dance-like qualities.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Tomorrow Shall Be My Dancing Day in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Tomorrow Shall Be My Dancing Day","abc":"X:1\nT:Tomorrow Shall Be My Dancing Day\nM:3/4\nK:D\nD2|A2F2 AG|F2E2 GF|D2B,2D2|D4 BA|B2 d2 Bd|c2 F2 B2|A6|A4 Bc|\r\nd2 B2 d2|c2 A4|B2 d2 B2|A4 F2|G2 A2 B2|A2 D4|B,2 D2 GF|E4 Bc||\r\nd4 Bd|c4 BA|B3d B2|A6|B2 c2 d2|A2 F2 ED|F2 E2 D2|E4 Bc|\r\nd4 Bd|c4 BA|B3d B2|A6|B2 d2 B2|AF D2 E2|F2 A2 E2|D4||","settingId":"33192"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

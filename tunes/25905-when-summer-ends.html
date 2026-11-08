@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View When Summer Ends in standard notation with Irish tenor banjo tablature in GDAE tuning. Waltz, 3/4, D major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/25905-when-summer-ends.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="When Summer Ends banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View When Summer Ends in standard notation with Irish tenor banjo tablature in GDAE tuning. Waltz, 3/4, D major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/25905-when-summer-ends.html">
+  <title>When Summer Ends Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>When Summer Ends</h1>
+    <p class="metadata">Waltz · 3/4 · D major</p>
+    <p class="tune-overview">When Summer Ends is a contemporary waltz composed by the Scottish accordionist Phil Cunningham. Written in 3/4 meter and set in the key of D major, the tune is characterized by its lyrical melody and expressive, flowing style typical of modern Scottish folk composition. While it does not carry an older historical association due to its modern origin, it has become a well-regarded piece within the contemporary traditional music repertoire.</p>
+    <div class="music" id="tune-music" role="img" aria-label="When Summer Ends in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"When Summer Ends","abc":"X:1\nT:When Summer Ends\nM:3/4\nK:D\n|:AG | F(AA4) (A4A)G| F(DD4) G4 AG|F(AA4) c3 d ef |(d6 d4) cd |\r\nB4 A2 d4 F2 |A4 D2 A4 D2 | D4 E2 (F4F)G |F(EE4 E4) :|\r\n|:g2|f(dd4) g4 f2 | d4 c2 A4 g2 |f(dd4) e4 a2|(a6 a4) g2 |\r\nf(dd4) g4 B2 | d4 c2 A4 AG |F(AA4) A4 G2 | F(DD4) G4 :|","settingId":"55093"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>
