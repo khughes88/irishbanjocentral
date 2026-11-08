@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Reed Makers in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, D major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/15000-reed-makers.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Reed Makers banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Reed Makers in standard notation with Irish tenor banjo tablature in GDAE tuning. Jig, 6/8, D major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/15000-reed-makers.html">
+  <title>Reed Makers Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Reed Makers</h1>
+    <p class="metadata">Jig · 6/8 · D major</p>
+    <p class="tune-overview">Reed Makers is a jig composed in the key of D major by Ben Walker. Played in 6/8 meter, it features the characteristic lively and rhythmic feel typical of traditional dance tunes in this style. Because detailed historical associations and specific performance contexts for the piece are not widely documented, musicians typically interpret it with a lively approach suited to contemporary sessions.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Reed Makers in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Reed Makers","abc":"X:1\nT:Reed Makers\nM:6/8\nK:D\n|:FEF DEF|GFG EFG|Adc dAB|=cBA BAG|\r\nF3 DEF|G3 EFG|Adc dAF|1 =cGE DFG:|2 =cGE D3||\r\n|:f3 def|g3 efg|f3 ded|=cAB c2 A|\r\ndAA eAA|fAA gAA|a3 ge=c|AGF G3:|\r\n|:F3 ded|G3 ded|F3 ded|=cBA BAG|\r\nFDF GDG|ADA BDB|dfd =cBA|1 GEA DFG:|2 GEA D3||\r\n|:F2 A AGA|G2 B BAB|ABc dAF|=cGE EFG|\r\nF2 A AGA|G2 B BAB|ABc dAF|1 =cGE DFG:|=cGE D3||","settingId":"47120"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>
