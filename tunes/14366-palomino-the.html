@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Palomino, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Waltz, 3/4, E minor.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/14366-palomino-the.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Palomino, The banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Palomino, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Waltz, 3/4, E minor.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/14366-palomino-the.html">
+  <title>Palomino, The Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Palomino, The</h1>
+    <p class="metadata">Waltz · 3/4 · E minor</p>
+    <p class="tune-overview">The waltz titled The Palomino was composed by the renowned Scottish accordionist and musician Phil Cunningham. Set in three-four meter and the key of E minor, the tune features a graceful yet spirited melodic character typical of modern Celtic waltzes. It is frequently performed in contemporary traditional music circles and showcases Cunningham&#39;s signature lyrical compositional style.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Palomino, The in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Palomino, The","abc":"X:1\nT:Palomino, The\nM:3/4\nK:Em\nB,\u003eD|:(E4 E)\u003eD|(G2 G)\u003eA G\u003eE|D2 (E2 E)\u003eG|E4 D2|B4 A\u003eB|\r\n(d2 d)\u003ee d\u003eB|A2 (B2 B)\u003ed|(B2 B)\u003ed g\u003ef|(e2 e)\u003ef e\u003eB|\r\n(d2 d)\u003ef e\u003ed|(B2 B)\u003eG E\u003eG|(B2 B)\u003eA G\u003eE|C4 E\u003eF|\r\n(G2 G)\u003eE C\u003eE|1 (D6|D4) B,\u003eD:|2 (D6|D2) B\u003eA B\u003ed||\r\n|:(B6|B\u003e)d B\u003eA G\u003eE|(C4 C\u003e)D|(C2 C\u003e)E D\u003eC|\r\nB,\u003e^D F\u003eA B\u003e^d|f\u003eb a\u003eg f\u003eg|f2 (e2 e\u003e)f|g4 =f2|\r\n(e2 e\u003e)^d e\u003ef|g2 f2\u003ee2|d\u003ee d/B G\u003eA|(B2 B\u003e)A G\u003eE|\r\n(C2 C)\u003eD E\u003eF|(G2 G)\u003eE C\u003eE|1 (D6|D)\u003eA B\u003eA B\u003ed:|2 (D6|D4)||","settingId":"28876"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>
