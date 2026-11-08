@@ -216,7 +216,7 @@ class SiteHeader extends HTMLElement {
       const printButton = document.createElement("button");
       printButton.className = "tune-print-button";
       printButton.type = "button";
-      printButton.textContent = "Print";
+      printButton.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg><span>Print</span>';
       printButton.setAttribute("aria-label", "Print tune notation");
       printButton.addEventListener("click", () => window.print());
       (tunePage.querySelector(".tune-overview") || tunePage.querySelector("#tune-music"))
@@ -225,7 +225,10 @@ class SiteHeader extends HTMLElement {
       const printStyles = document.createElement("style");
       printStyles.textContent = `
         .tune-print-button {
-          margin: 0 0 24px;
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          margin: 0 0 24px auto;
           padding: 8px 14px;
           border: 1px solid #315d4c;
           border-radius: 2px;
@@ -233,6 +236,16 @@ class SiteHeader extends HTMLElement {
           color: #fff;
           cursor: pointer;
           font: 600 13px "Avenir Next", Avenir, "Segoe UI", sans-serif;
+        }
+
+        .tune-print-button svg {
+          width: 16px;
+          height: 16px;
+          fill: none;
+          stroke: currentColor;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 1.8;
         }
 
         .tune-print-button:focus-visible {
