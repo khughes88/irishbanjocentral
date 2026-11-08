@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Streets Of Minneapolis in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, D major.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/26357-streets-of-minneapolis.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Streets Of Minneapolis banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Streets Of Minneapolis in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, D major.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/26357-streets-of-minneapolis.html">
+  <title>Streets Of Minneapolis Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Streets Of Minneapolis</h1>
+    <p class="metadata">Reel · 4/4 · D major</p>
+    <p class="tune-overview">Streets Of Minneapolis is a traditional fiddle tune of uncertain historical origin and no verified composer. Played as a lively reel in 4/4 time and the key of D major, it features an upbeat character well suited for energetic contra dancing. Because specific historical associations and regional roots for this tune are not well established, musicians focus on its driving rhythm and melodic phrasing when performing it.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Streets Of Minneapolis in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Streets Of Minneapolis","abc":"X:1\nT:Streets Of Minneapolis\nM:4/4\nK:D\n|:\"D\"BA2AA3B-|BA{D}FD z3d|\"G\"d/c/d3cB2A|\r\n\"D\"z7 G|\"G\"d/d/d z2czB c-|\"D\"A2 AAz2AB|BFzF2Fz E|\r\n\"A7\"z4zAz A|\"D\"A2 A A3/F3/ AF|AA2Dz2d2|\r\n\"G\"dd2zcB z A|\"D\"z4 z2 dc|\"G\"d/d/d/d/z c z BGB|\r\n\"D\" z A A2 z3 A|B F3 \"A7\"F2{A}F-D|\"D\"D4z2 F/A3/:|\r\n\"G\"d/d/d z/ d/d2 d2 e-|e d2 d2 z2d-|\r\ndddd c B2 A-|\"D\"A2 z4zd|\"G\"d d2 d2 z2 e|d2 d2 z2 dd|\r\nd3 d c {A}B2A-|\"D\"A2 z3d-|\"G\"d/d/ d2 d2 e-|\r\ne d2 d2 z (3zdd-| d/d3/ c B2 A| z4\"D\"z2AA|\"D5\"BAA A3 AB|\r\nA D2 z2 G/G/ GG|\"A7\"z2G/F/F- F G/F/ E D|\"D\" D4z4|","settingId":"56592"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

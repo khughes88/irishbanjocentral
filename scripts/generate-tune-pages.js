@@ -17,7 +17,7 @@ const GOOGLE_TAG = `  <script async src="https://www.googletagmanager.com/gtm.js
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   </script>`;
-const DEFAULT_PAGE_LIMIT = 19000;
+const DEFAULT_PAGE_LIMIT = 21000;
 const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash-lite";
 const TUNE_INDEX_PAGE_SIZE = 10;
 
@@ -585,8 +585,8 @@ async function main() {
     throw new Error("GEMINI_MODEL contains unsupported characters.");
   }
 
-  for (const { tune, outputFile, existingPage } of pagesToBuild) {
-    console.log(`Processing "${tune.name}"...`);
+  for (const [index, { tune, outputFile, existingPage }] of pagesToBuild.entries()) {
+    console.log(`[${index + 1}/${pagesToBuild.length}] Processing "${tune.name}"...`);
     try {
       const overview = await generateTuneOverview(tune, apiKey, model);
       if (existingPage) {

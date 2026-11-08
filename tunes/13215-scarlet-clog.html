@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Scarlet Clog in standard notation with Irish tenor banjo tablature in GDAE tuning. Hornpipe, 4/4, F dorian.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/13215-scarlet-clog.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Scarlet Clog banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Scarlet Clog in standard notation with Irish tenor banjo tablature in GDAE tuning. Hornpipe, 4/4, F dorian.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/13215-scarlet-clog.html">
+  <title>Scarlet Clog Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Scarlet Clog</h1>
+    <p class="metadata">Hornpipe · 4/4 · F dorian</p>
+    <p class="tune-overview">Scarlet Clog is a traditional hornpipe played in four-four time, though its exact geographic origin and composer remain unknown due to a lack of early historical documentation. The tune is set in the uncommon key of F dorian, giving it a distinctive modal flavor and a steady, rhythmic character suited for traditional instrumental performance. Because reliable historical associations have not been established for this piece, musicians approach it primarily as a regional dance tune focusing on lively articulation and rhythmic drive.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Scarlet Clog in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Scarlet Clog","abc":"X:1\nT:Scarlet Clog\nM:4/4\nK:Fdor\n(3BAB|:c\u003eB G\u003eE B,\u003eEF\u003eG|A/D/ F3F2 B\u003cdf|a\u003egf\u003ee d\u003ecB\u003eA|G/B/ e4 B (3BAB|\r\nc\u003eBG\u003eE B,\u003eED\u003eE|F\u003eDF\u003eB d\u003ef (3bag|f\u003eg (3fdB F\u003eG (3FDB,|1 A,2F\u003eA, B,\u003eB (3BAB:|2 A,2F\u003eA, A, B\u003cdf/||\r\n|:a\u003eB (3B=AB f\u003edB\u003e_A|G\u003eBe\u003ec B\u003eG E2|D\u003eFB\u003eA G\u003eBe\u003eg|(3fgf (3edc B2 (3BAB|\r\na\u003eB (3B=AB f\u003edB\u003e_A|G\u003eBe\u003ed c\u003eBA\u003eG|F\u003eED\u003eC B,\u003eAG\u003eF|1 E2G2 EB\u003cdf/:|2 E2G2E2||","settingId":"22951"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>
