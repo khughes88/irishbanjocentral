@@ -211,6 +211,82 @@ class SiteHeader extends HTMLElement {
         </nav>
       </header>`;
 
+    const tunePage = document.querySelector(".tune-page");
+    if (tunePage) {
+      const printButton = document.createElement("button");
+      printButton.className = "tune-print-button";
+      printButton.type = "button";
+      printButton.textContent = "Print";
+      printButton.setAttribute("aria-label", "Print tune notation");
+      printButton.addEventListener("click", () => window.print());
+      (tunePage.querySelector(".tune-overview") || tunePage.querySelector("#tune-music"))
+        ?.before(printButton);
+
+      const printStyles = document.createElement("style");
+      printStyles.textContent = `
+        .tune-print-button {
+          margin: 0 0 24px;
+          padding: 8px 14px;
+          border: 1px solid #315d4c;
+          border-radius: 2px;
+          background: #315d4c;
+          color: #fff;
+          cursor: pointer;
+          font: 600 13px "Avenir Next", Avenir, "Segoe UI", sans-serif;
+        }
+
+        .tune-print-button:focus-visible {
+          outline: 3px solid #e8834d;
+          outline-offset: 2px;
+        }
+
+        @media print {
+          @page { margin: 12mm; }
+          body { background: #fff !important; color: #000 !important; }
+          site-header, site-footer, .tune-page > :not(.music) {
+            display: none !important;
+          }
+          .tune-page {
+            width: 100%;
+            min-height: 0;
+            margin: 0;
+            padding: 0;
+          }
+          .music {
+            overflow: visible;
+            padding: 0;
+            background: transparent;
+          }
+          .music svg { break-inside: avoid; page-break-inside: avoid; }
+        }
+      `;
+      document.head.append(printStyles);
+
+      const tuneData = document.querySelector("#tune-data");
+      const music = document.querySelector("#tune-music");
+      if (tuneData && music) {
+        const tune = JSON.parse(tuneData.textContent);
+        const renderTune = (oneSvgPerLine) => {
+          if (!window.ABCJS?.renderAbc) return;
+          music.replaceChildren();
+          window.ABCJS.renderAbc(music, tune.abc, {
+            staffwidth: Math.max(320, music.clientWidth - 36),
+            responsive: "resize",
+            scale: 1,
+            ...(oneSvgPerLine ? { oneSvgPerLine: true } : {}),
+            tablature: [{
+              instrument: "mandolin",
+              label: "GDAE",
+              tuning: ["G,", "D", "A", "e"]
+            }]
+          });
+        };
+
+        window.addEventListener("beforeprint", () => renderTune(true));
+        window.addEventListener("afterprint", () => renderTune(false));
+      }
+    }
+
     const form = root.querySelector("form");
     const input = root.querySelector("#tune-query");
     const suggestions = root.querySelector(".suggestions");
