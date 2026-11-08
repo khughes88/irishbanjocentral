@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PDWPTJPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View Witches, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, E minor.">
+  <meta name="theme-color" content="#153a32">
+  <link rel="canonical" href="https://irishbanjocentral.com/tunes/20265-witches-the.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Witches, The banjo tablature | Irish Banjo Central">
+  <meta property="og:description" content="View Witches, The in standard notation with Irish tenor banjo tablature in GDAE tuning. Reel, 4/4, E minor.">
+  <meta property="og:url" content="https://irishbanjocentral.com/tunes/20265-witches-the.html">
+  <title>Witches, The Banjo Tablature | Irish Banjo Central</title>
+  <script defer src="../components/site-header.js"></script>
+  <script defer src="../components/site-footer.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20342c;
+      --paper: #f7f3e9;
+      --paper-deep: #eee7d7;
+      --muted: #6d756c;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .tune-page { width: min(1120px, calc(100% - 48px)); min-height: 65vh; margin-inline: auto; padding-block: 54px 80px; }
+    h1 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 400; letter-spacing: -.045em; }
+    .metadata { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .tune-overview { max-width: 760px; margin: 0 0 28px; font-size: 16px; line-height: 1.7; }
+    .music { min-width: 0; overflow-x: auto; padding: 22px 18px; background: #fffdf8; }
+    .music svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    details { margin-top: 20px; font-size: 13px; }
+    summary { width: fit-content; color: var(--muted); cursor: pointer; }
+    pre { max-height: 400px; overflow: auto; padding: 16px; background: #fffdf8; font: 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 760px) {
+      .tune-page { width: min(100% - 36px, 560px); padding-block: 36px 64px; }
+      .music { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <site-header solid></site-header>
+  <main class="tune-page">
+    <h1>Witches, The</h1>
+    <p class="metadata">Reel · 4/4 · E minor</p>
+    <p class="tune-overview">The traditional Irish reel known as The Witches is played in 4/4 meter with an E minor tonality, though its exact geographic origin and historical background remain uncertain. The tune features a lively, rhythmic character typical of standard session reels, making it well-suited for energetic contra dancing and fast-paced instrumental accompaniment. Because specific historical associations and composer details are not historically documented, musicians approach the piece purely on its traditional merits within modern repertoire.</p>
+    <div class="music" id="tune-music" role="img" aria-label="Witches, The in standard notation and GDAE tablature"></div>
+    <p class="status" id="render-status" role="status" aria-live="polite">Rendering music notation and GDAE tablature...</p>
+  </main>
+  <site-footer></site-footer>
+  <script type="application/json" id="tune-data">{"name":"Witches, The","abc":"X:1\nT:Witches, The\nM:4/4\nK:Em\nGA|:\"Em\" B2BA BE (3EEE|Bd^cA B2 BG|\"D\" A2 AB AD (3DDD|FDFG A2d^c|\r\n\"Em\" B2 BA BE (3EEE|Bd^cA B2 cd|e2 ef edBA|G2 FD E4:|\r\n\"G\" G2 GA Bdef|g2 gf gfef|gefd edBG|A2 AG \"D7\" A2 GA|\r\n\"G\" B3 A Bdef|g2 gf gfef|gefd edBA|B2 \"D7\" c4 BA|\r\n\"G\" G2 GA Bdef|g2 gf gfef|gefd edBG|(3 Bcd cB \"D7\" A2BA|\r\n\"G\" G2 GA Bdef|g2 gf gfef|gefd edBd|\"Em\" e6 b2-|\r\nb8|\"D\" a3 g fgaf|\"C\" gefd edBG|\"Bm\" A2 AG AGFD|\"Am\" E3 G A2 GA|\r\n\"Bm\" Bc dB cdef|\"C\" fgaf gfed|\"D\" e2 ed e2 b2-|\"Em\" b4 agfe|\r\n\"D\" a4 gfef|\"C\" gefd edBG|\"Bm\" A2 AG ABde-|\"Am\" e2 de f2 ef|\r\n\"Bm\" g2 a4 b2-|\"C\" bagf eagf|\"D\" edBA GFGA|","settingId":"40103"}</script>
+  <script src="../vendor/abcjs-basic-min.js"></script>
+  <script>
+    const tune = JSON.parse(document.querySelector("#tune-data").textContent);
+    const music = document.querySelector("#tune-music");
+    const status = document.querySelector("#render-status");
+
+    try {
+      if (!window.ABCJS?.renderAbc) throw new Error("The local abcjs renderer could not be loaded.");
+      window.ABCJS.renderAbc(music, tune.abc, {
+        staffwidth: Math.max(320, music.clientWidth - 36),
+        responsive: "resize",
+        scale: 1,
+        tablature: [{
+          instrument: "mandolin",
+          label: "GDAE",
+          tuning: ["G,", "D", "A", "e"]
+        }]
+      });
+      status.textContent = "";
+    } catch (error) {
+      console.error("Unable to render tune notation.", error);
+      status.textContent = `Unable to render notation: ${error.message}`;
+    }
+  </script>
+</body>
+</html>

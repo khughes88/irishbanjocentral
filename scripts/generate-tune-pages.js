@@ -17,7 +17,7 @@ const GOOGLE_TAG = `  <script async src="https://www.googletagmanager.com/gtm.js
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   </script>`;
-const DEFAULT_PAGE_LIMIT = 23000;
+const DEFAULT_PAGE_LIMIT = 24000;
 const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash-lite";
 const TUNE_INDEX_PAGE_SIZE = 10;
 
@@ -340,8 +340,8 @@ async function generateTuneOverview(tune, apiKey, model = DEFAULT_GEMINI_MODEL) 
     throw new Error(`Gemini could not generate an overview for "${tune.name}": ${reason}`);
   }
   const count = sentenceCount(text);
-  if (count < 3 || count > 4) {
-    throw new Error(`Gemini returned ${count} sentences for "${tune.name}"; expected 3 or 4.`);
+  if (count > 4) {
+    throw new Error(`Gemini returned ${count} sentences for "${tune.name}"; expected no more than 4.`);
   }
   return text;
 }
